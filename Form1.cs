@@ -16,6 +16,7 @@ namespace Notepad
     {
         string filePath = "";
         Color currentColor;
+        Boolean saveStat = false;
         
         public Notepad(string name = "Notepad")
         {
@@ -31,8 +32,9 @@ namespace Notepad
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             filePath = "";
-            FileNameBox.Text = "Untitled";
+            SaveStatus.Text = "Not Saved";
             richTextBox1.Text = "";
+            this.Text = "Untitled";
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,7 +47,9 @@ namespace Notepad
                     {
                         filePath = ofd.FileName;
                         String[] args = ofd.FileName.Split('\\');
-                        FileNameBox.Text = args[args.Length - 1];
+                        this.Text= args[args.Length - 1];
+                        SaveStatus.Text = "Saved";
+                        saveStat = true;
                         Task<string> text = str.ReadToEndAsync();
                         richTextBox1.Text = text.Result;
                     }
@@ -65,8 +69,11 @@ namespace Notepad
                         {
                             strw.WriteLineAsync(richTextBox1.Text);
                             filePath = sfd.FileName;
+                           
                             String[] args = sfd.FileName.Split('\\');
-                            FileNameBox.Text = args[args.Length - 1];
+                            this.Text = args[args.Length - 1];
+                            SaveStatus.Text = "Saved";
+                            saveStat = true;
                         }
                     }
                 }
@@ -75,7 +82,9 @@ namespace Notepad
             {
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
-                    sw.WriteLineAsync(richTextBox1.Text);
+                    sw.WriteLineAsync(richTextBox1.Text); 
+                    SaveStatus.Text = "Saved";
+                    saveStat = true;
                 }
             }
         }
@@ -104,6 +113,16 @@ namespace Notepad
             richTextBox1.BackColor = richTextBox1.BackColor;
             richTextBox1.SelectionBackColor = currentColor;
 
+            if(saveStat == true)
+            {
+                SaveStatus.Text = "Saved";
+                saveStat = false;
+            }
+            else
+            {
+                SaveStatus.Text = "Not Saved";
+            }
+
             if (richTextBox1.Text.Length > 0)
             {
                 cutToolStripMenuItem.Enabled = true;
@@ -118,7 +137,7 @@ namespace Notepad
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void printPreviewToolStripMenuItem_Click(object sender, EventArgs e)

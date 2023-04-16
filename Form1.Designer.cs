@@ -56,18 +56,18 @@ namespace Notepad
             this.highlightTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAppBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.highlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.FileNameBox = new System.Windows.Forms.TextBox();
+            this.SaveStatus = new System.Windows.Forms.TextBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.highlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -311,7 +311,7 @@ namespace Notepad
             this.wordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
@@ -320,7 +320,7 @@ namespace Notepad
             this.fontToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.fontToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -332,7 +332,7 @@ namespace Notepad
             this.changeTextColorToolStripMenuItem});
             this.highlightTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
-            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.highlightTextToolStripMenuItem.Text = "Customize";
             // 
             // changeAppBackgroundToolStripMenuItem
@@ -353,6 +353,16 @@ namespace Notepad
             this.changeTextColorToolStripMenuItem.Text = "Change Text Color";
             this.changeTextColorToolStripMenuItem.Click += new System.EventHandler(this.changeTextColorToolStripMenuItem_Click);
             // 
+            // highlightToolStripMenuItem
+            // 
+            this.highlightToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.highlightToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
+            this.highlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.highlightToolStripMenuItem.Text = "Highlight";
+            this.highlightToolStripMenuItem.Click += new System.EventHandler(this.highlightToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
@@ -369,7 +379,7 @@ namespace Notepad
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -394,21 +404,22 @@ namespace Notepad
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // FileNameBox
+            // SaveStatus
             // 
-            this.FileNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.FileNameBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.FileNameBox.Enabled = false;
-            this.FileNameBox.ForeColor = System.Drawing.Color.White;
-            this.FileNameBox.Location = new System.Drawing.Point(588, 8);
-            this.FileNameBox.MaximumSize = new System.Drawing.Size(200, 0);
-            this.FileNameBox.Name = "FileNameBox";
-            this.FileNameBox.Size = new System.Drawing.Size(200, 16);
-            this.FileNameBox.TabIndex = 3;
-            this.FileNameBox.Text = "Untitled";
-            this.FileNameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.FileNameBox.WordWrap = false;
-            this.FileNameBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.SaveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.SaveStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SaveStatus.Enabled = false;
+            this.SaveStatus.ForeColor = System.Drawing.Color.White;
+            this.SaveStatus.Location = new System.Drawing.Point(588, 8);
+            this.SaveStatus.MaximumSize = new System.Drawing.Size(200, 0);
+            this.SaveStatus.Name = "SaveStatus";
+            this.SaveStatus.Size = new System.Drawing.Size(200, 16);
+            this.SaveStatus.TabIndex = 3;
+            this.SaveStatus.Text = "Not Saved";
+            this.SaveStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.SaveStatus.WordWrap = false;
+            this.SaveStatus.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // printPreviewDialog1
             // 
@@ -424,16 +435,6 @@ namespace Notepad
             // 
             this.printDialog1.UseEXDialog = true;
             // 
-            // highlightToolStripMenuItem
-            // 
-            this.highlightToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.highlightToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
-            this.highlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.highlightToolStripMenuItem.Text = "Highlight";
-            this.highlightToolStripMenuItem.Click += new System.EventHandler(this.highlightToolStripMenuItem_Click);
-            // 
             // Notepad
             // 
             this.AllowDrop = true;
@@ -442,14 +443,14 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.FileNameBox);
+            this.Controls.Add(this.SaveStatus);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Notepad";
             this.Opacity = 0.95D;
-            this.Text = "Notepad";
+            this.Text = "Untitled";
             this.Load += new System.EventHandler(this.Notepad_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -488,7 +489,7 @@ namespace Notepad
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.TextBox FileNameBox;
+        private System.Windows.Forms.TextBox SaveStatus;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintDialog printDialog1;
