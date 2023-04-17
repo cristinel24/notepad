@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Notepad
 {
@@ -16,25 +17,36 @@ namespace Notepad
     {
         string filePath = "";
         Color currentColor;
-        Boolean saveStat = false;
+        int saveStat = 0;
         
         public Notepad(string name = "Notepad")
         {
             InitializeComponent();
-            currentColor = richTextBox1.SelectionBackColor;
+            currentColor = richBox.SelectionBackColor;
+
         }
 
         private void Notepad_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            filePath = "";
-            SaveStatus.Text = "Not Saved";
-            richTextBox1.Text = "";
-            this.Text = "Untitled";
+            if (saveStat < 1)
+            {
+                Save_Warning f2 = new Save_Warning(this.Text, filePath, this);
+                f2.ShowDialog();
+                saveStat = f2.getSaveStat();
+            }
+            if (saveStat == 1 || saveStat == -1)
+            {
+                filePath = "";
+                SaveStatus.Text = "Not Saved";
+                richBox.Text = "";
+                this.Text = "Untitled";
+                saveStat = -1;
+            }
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,9 +61,10 @@ namespace Notepad
                         String[] args = ofd.FileName.Split('\\');
                         this.Text= args[args.Length - 1];
                         SaveStatus.Text = "Saved";
-                        saveStat = true;
+                        saveStat = 1;
                         Task<string> text = str.ReadToEndAsync();
-                        richTextBox1.Text = text.Result;
+                        richBox.Text = text.Result;
+                        richBox.SelectionStart = richBox.Text.Length;
                     }
                 }
             }
@@ -67,13 +80,13 @@ namespace Notepad
                     {
                         using (StreamWriter strw = new StreamWriter(sfd.FileName))
                         {
-                            strw.WriteLineAsync(richTextBox1.Text);
+                            strw.WriteLineAsync(richBox.Text);
                             filePath = sfd.FileName;
                            
                             String[] args = sfd.FileName.Split('\\');
                             this.Text = args[args.Length - 1];
                             SaveStatus.Text = "Saved";
-                            saveStat = true;
+                            saveStat = 1;
                         }
                     }
                 }
@@ -82,9 +95,9 @@ namespace Notepad
             {
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
-                    sw.WriteLineAsync(richTextBox1.Text); 
+                    sw.WriteLineAsync(richBox.Text); 
                     SaveStatus.Text = "Saved";
-                    saveStat = true;
+                    saveStat = 1;
                 }
             }
         }
@@ -96,7 +109,7 @@ namespace Notepad
                 {
                     using (StreamWriter strw = new StreamWriter(sfd.FileName))
                     {
-                        strw.WriteLineAsync(richTextBox1.Text);
+                        strw.WriteLineAsync(richBox.Text);
                     }
                 }
             }
@@ -104,26 +117,29 @@ namespace Notepad
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Undo();
+            richBox.Undo();
+            SaveStatus.Text = "Not Saved";
+            saveStat = -1;
         }
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            richTextBox1.Font = richTextBox1.Font;
-            richTextBox1.BackColor = richTextBox1.BackColor;
-            richTextBox1.SelectionBackColor = currentColor;
+            
+            richBox.Font = richBox.Font;
+            richBox.BackColor = richBox.BackColor;
+            richBox.SelectionBackColor = currentColor;
 
-            if(saveStat == true)
+            if(saveStat == 1)
             {
                 SaveStatus.Text = "Saved";
-                saveStat = false;
+                saveStat = -1;
             }
             else
             {
                 SaveStatus.Text = "Not Saved";
             }
 
-            if (richTextBox1.Text.Length > 0)
+            if (richBox.Text.Length > 0)
             {
                 cutToolStripMenuItem.Enabled = true;
                 copyToolStripMenuItem.Enabled = true;
@@ -162,37 +178,45 @@ namespace Notepad
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Redo();
+            richBox.Redo();
+            SaveStatus.Text = "Not Saved";
+            saveStat = -1;
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Copy();
+            richBox.Copy();
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Paste();
+            richBox.Paste();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.SelectedText = "";
+            richBox.SelectedText = "";
+            SaveStatus.Text = "Not Saved";
+            saveStat = -1;
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Cut();
+            richBox.Cut();
+            SaveStatus.Text = "Not Saved";
+            saveStat = -1;
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.SelectAll();
+            richBox.SelectAll();
+            saveStat = -1;
         }
 
         private void timeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text += System.DateTime.Today.ToLongDateString() + " " + System.DateTime.Today.ToShortTimeString();
+            richBox.Text += System.DateTime.Today.ToLongDateString();
+            richBox.SelectionStart = richBox.Text.Length;
         }
 
         private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,41 +224,53 @@ namespace Notepad
             if(wordWrapToolStripMenuItem.Checked== true)
             {
                 wordWrapToolStripMenuItem.Checked = false;
-                richTextBox1.WordWrap = false;
+                richBox.WordWrap = false;
             }
             else
             {
                 wordWrapToolStripMenuItem.Checked = true;
-                richTextBox1.WordWrap = true;
+                richBox.WordWrap = true;
             }
         }
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
-            richTextBox1.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
+            richBox.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
         }
 
         private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            richTextBox1.ForeColor = colorDialog1.Color;
+            richBox.ForeColor = colorDialog1.Color;
         }
 
         private void changeAppBackgroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
             colorDialog1.ShowDialog();
-            richTextBox1.BackColor = colorDialog1.Color;
+            richBox.BackColor = colorDialog1.Color;
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Process.Start("start http://google.com");
+            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad");
         }
 
         private void highlightToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox1.SelectionBackColor = Color.DarkBlue;
+            richBox.SelectionBackColor = Color.DarkBlue;
+        }
+
+        private void newNotepadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Notepad other = new Notepad();
+            other.ShowDialog();
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Find_Window f = new Find_Window(this);
+            f.Show();
         }
     }
 }

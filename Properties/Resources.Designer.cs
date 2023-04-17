@@ -59,5 +59,14 @@ namespace Notepad.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ./src/Notepad.cs.
+        /// </summary>
+        internal static string Notepad {
+            get {
+                return ResourceManager.GetString("Notepad", resourceCulture);
+            }
+        }
     }
 }

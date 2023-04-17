@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Notepad": {
+      "commandName": "Project",
+      "workingDirectory": "./src"
+    }
+  }
+}

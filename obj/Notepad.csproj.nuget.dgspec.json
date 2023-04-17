@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FII\\Extra\\notepad\\Notepad.csproj": {}
+    "D:\\FII\\Extra\\Notepad\\Notepad.csproj": {}
   },
   "projects": {
-    "D:\\FII\\Extra\\notepad\\Notepad.csproj": {
+    "D:\\FII\\Extra\\Notepad\\Notepad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
+        "projectUniqueName": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
         "projectName": "Notepad",
-        "projectPath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
+        "projectPath": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
         "packagesPath": "C:\\Users\\crist\\.nuget\\packages\\",
-        "outputPath": "D:\\FII\\Extra\\notepad\\obj\\",
+        "outputPath": "D:\\FII\\Extra\\Notepad\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
