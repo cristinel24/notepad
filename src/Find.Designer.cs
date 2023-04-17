@@ -20,7 +20,7 @@ namespace Notepad
             }
             base.Dispose(disposing);
         }
-
+        
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -30,9 +30,8 @@ namespace Notepad
         private void InitializeComponent()
         {
             this.find_box = new System.Windows.Forms.RichTextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.matchCase = new System.Windows.Forms.CheckBox();
+            this.WholeWord = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.highlight_button = new System.Windows.Forms.Button();
             this.find_replace_button = new System.Windows.Forms.Button();
@@ -54,41 +53,29 @@ namespace Notepad
             this.find_box.TabIndex = 0;
             this.find_box.Text = "";
             // 
-            // checkBox1
+            // matchCase
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(266, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 19);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Match Case";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.matchCase.AutoSize = true;
+            this.matchCase.ForeColor = System.Drawing.Color.White;
+            this.matchCase.Location = new System.Drawing.Point(266, 5);
+            this.matchCase.Name = "matchCase";
+            this.matchCase.Size = new System.Drawing.Size(88, 19);
+            this.matchCase.TabIndex = 1;
+            this.matchCase.Text = "Match Case";
+            this.matchCase.UseVisualStyleBackColor = true;
+            this.matchCase.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // WholeWord
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.Color.White;
-            this.checkBox2.Location = new System.Drawing.Point(266, 24);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(129, 19);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "Match Whole Word";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(266, 44);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(152, 19);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "Use Regular Expressions";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.WholeWord.AutoSize = true;
+            this.WholeWord.ForeColor = System.Drawing.Color.White;
+            this.WholeWord.Location = new System.Drawing.Point(266, 24);
+            this.WholeWord.Name = "WholeWord";
+            this.WholeWord.Size = new System.Drawing.Size(129, 19);
+            this.WholeWord.TabIndex = 2;
+            this.WholeWord.Text = "Match Whole Word";
+            this.WholeWord.UseVisualStyleBackColor = true;
+            this.WholeWord.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // button1
             // 
@@ -112,35 +99,43 @@ namespace Notepad
             this.highlight_button.TabIndex = 5;
             this.highlight_button.Text = "Highlight All";
             this.highlight_button.UseVisualStyleBackColor = false;
+            this.highlight_button.Click += new System.EventHandler(this.highlight_button_Click);
             // 
             // find_replace_button
             // 
             this.find_replace_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.find_replace_button.ForeColor = System.Drawing.Color.White;
-            this.find_replace_button.Location = new System.Drawing.Point(171, 44);
+            this.find_replace_button.Location = new System.Drawing.Point(181, 44);
             this.find_replace_button.Name = "find_replace_button";
-            this.find_replace_button.Size = new System.Drawing.Size(89, 23);
+            this.find_replace_button.Size = new System.Drawing.Size(196, 23);
             this.find_replace_button.TabIndex = 6;
-            this.find_replace_button.Text = "Replace";
+            this.find_replace_button.Text = "How to use Regular Expressions";
             this.find_replace_button.UseVisualStyleBackColor = false;
+            this.find_replace_button.Click += new System.EventHandler(this.find_replace_button_Click);
             // 
             // Find_Window
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(419, 71);
             this.Controls.Add(this.find_replace_button);
             this.Controls.Add(this.highlight_button);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.WholeWord);
+            this.Controls.Add(this.matchCase);
             this.Controls.Add(this.find_box);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Find_Window";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Find";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -150,9 +145,8 @@ namespace Notepad
         #endregion
 
         private System.Windows.Forms.RichTextBox find_box;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox matchCase;
+        private System.Windows.Forms.CheckBox WholeWord;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button highlight_button;
         private System.Windows.Forms.Button find_replace_button;

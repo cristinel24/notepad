@@ -57,6 +57,8 @@ namespace Notepad
             this.highlightTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAppBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeHighlightColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeHighlightTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,7 +71,15 @@ namespace Notepad
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.find_panel = new System.Windows.Forms.Panel();
+            this.find_replace_button = new System.Windows.Forms.Button();
+            this.highlight_button = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.WholeWord = new System.Windows.Forms.CheckBox();
+            this.find_box = new System.Windows.Forms.RichTextBox();
+            this.matchCase = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
+            this.find_panel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -210,7 +220,7 @@ namespace Notepad
             this.undoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.undoToolStripMenuItem.Text = "Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
@@ -220,7 +230,7 @@ namespace Notepad
             this.redoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.redoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.redoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.redoToolStripMenuItem.Text = "Redo";
             this.redoToolStripMenuItem.Click += new System.EventHandler(this.redoToolStripMenuItem_Click);
             // 
@@ -231,7 +241,7 @@ namespace Notepad
             this.cutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.cutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.cutToolStripMenuItem.Text = "Cut";
             this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
             // 
@@ -242,7 +252,7 @@ namespace Notepad
             this.copyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
@@ -252,7 +262,7 @@ namespace Notepad
             this.pasteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
             // 
@@ -262,7 +272,7 @@ namespace Notepad
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -272,7 +282,7 @@ namespace Notepad
             this.selectAllToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.selectAllToolStripMenuItem.Text = "Select All";
             this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.selectAllToolStripMenuItem_Click);
             // 
@@ -282,7 +292,7 @@ namespace Notepad
             this.findToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.findToolStripMenuItem.Name = "findToolStripMenuItem";
             this.findToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.findToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.findToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.findToolStripMenuItem.Text = "Find";
             this.findToolStripMenuItem.Click += new System.EventHandler(this.findToolStripMenuItem_Click);
             // 
@@ -292,7 +302,7 @@ namespace Notepad
             this.replaceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             this.replaceToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.replaceToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.replaceToolStripMenuItem.Text = "Replace";
             // 
             // timeToolStripMenuItem
@@ -301,7 +311,7 @@ namespace Notepad
             this.timeToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.timeToolStripMenuItem.Name = "timeToolStripMenuItem";
             this.timeToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.timeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.timeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.timeToolStripMenuItem.Text = "Date";
             this.timeToolStripMenuItem.Click += new System.EventHandler(this.timeToolStripMenuItem_Click);
             // 
@@ -325,7 +335,8 @@ namespace Notepad
             this.wordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.wordWrapToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.wordWrapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
@@ -334,7 +345,8 @@ namespace Notepad
             this.fontToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.fontToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -343,10 +355,12 @@ namespace Notepad
             this.highlightTextToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.highlightTextToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeAppBackgroundToolStripMenuItem,
-            this.changeTextColorToolStripMenuItem});
+            this.changeTextColorToolStripMenuItem,
+            this.changeHighlightColorToolStripMenuItem1,
+            this.changeHighlightTextColorToolStripMenuItem});
             this.highlightTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
-            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.highlightTextToolStripMenuItem.Text = "Customize";
             // 
             // changeAppBackgroundToolStripMenuItem
@@ -354,7 +368,8 @@ namespace Notepad
             this.changeAppBackgroundToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.changeAppBackgroundToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.changeAppBackgroundToolStripMenuItem.Name = "changeAppBackgroundToolStripMenuItem";
-            this.changeAppBackgroundToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.changeAppBackgroundToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
+            this.changeAppBackgroundToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
             this.changeAppBackgroundToolStripMenuItem.Text = "Change Background";
             this.changeAppBackgroundToolStripMenuItem.Click += new System.EventHandler(this.changeAppBackgroundToolStripMenuItem_Click);
             // 
@@ -363,9 +378,30 @@ namespace Notepad
             this.changeTextColorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.changeTextColorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.changeTextColorToolStripMenuItem.Name = "changeTextColorToolStripMenuItem";
-            this.changeTextColorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.changeTextColorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.changeTextColorToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
             this.changeTextColorToolStripMenuItem.Text = "Change Text Color";
             this.changeTextColorToolStripMenuItem.Click += new System.EventHandler(this.changeTextColorToolStripMenuItem_Click);
+            // 
+            // changeHighlightColorToolStripMenuItem1
+            // 
+            this.changeHighlightColorToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.changeHighlightColorToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.changeHighlightColorToolStripMenuItem1.Name = "changeHighlightColorToolStripMenuItem1";
+            this.changeHighlightColorToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.H)));
+            this.changeHighlightColorToolStripMenuItem1.Size = new System.Drawing.Size(256, 22);
+            this.changeHighlightColorToolStripMenuItem1.Text = "Change Highlight Color";
+            this.changeHighlightColorToolStripMenuItem1.Click += new System.EventHandler(this.changeHighlightColorToolStripMenuItem1_Click);
+            // 
+            // changeHighlightTextColorToolStripMenuItem
+            // 
+            this.changeHighlightTextColorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.changeHighlightTextColorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.changeHighlightTextColorToolStripMenuItem.Name = "changeHighlightTextColorToolStripMenuItem";
+            this.changeHighlightTextColorToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.C)));
+            this.changeHighlightTextColorToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.changeHighlightTextColorToolStripMenuItem.Text = "Change Selected Text Color";
+            this.changeHighlightTextColorToolStripMenuItem.Click += new System.EventHandler(this.changeHighlightTextColorToolStripMenuItem_Click);
             // 
             // highlightToolStripMenuItem
             // 
@@ -373,7 +409,7 @@ namespace Notepad
             this.highlightToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
             this.highlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.highlightToolStripMenuItem.Text = "Highlight";
             this.highlightToolStripMenuItem.Click += new System.EventHandler(this.highlightToolStripMenuItem_Click);
             // 
@@ -408,7 +444,7 @@ namespace Notepad
             this.richBox.EnableAutoDragDrop = true;
             this.richBox.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richBox.ForeColor = System.Drawing.Color.White;
-            this.richBox.Location = new System.Drawing.Point(0, 24);
+            this.richBox.Location = new System.Drawing.Point(0, 27);
             this.richBox.Name = "richBox";
             this.richBox.Size = new System.Drawing.Size(800, 424);
             this.richBox.TabIndex = 2;
@@ -450,6 +486,101 @@ namespace Notepad
             // 
             this.printDialog1.UseEXDialog = true;
             // 
+            // find_panel
+            // 
+            this.find_panel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.find_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.find_panel.Controls.Add(this.find_replace_button);
+            this.find_panel.Controls.Add(this.highlight_button);
+            this.find_panel.Controls.Add(this.button1);
+            this.find_panel.Controls.Add(this.WholeWord);
+            this.find_panel.Controls.Add(this.find_box);
+            this.find_panel.Controls.Add(this.matchCase);
+            this.find_panel.Location = new System.Drawing.Point(203, 371);
+            this.find_panel.Name = "find_panel";
+            this.find_panel.Size = new System.Drawing.Size(391, 80);
+            this.find_panel.TabIndex = 4;
+            this.find_panel.Visible = false;
+            // 
+            // find_replace_button
+            // 
+            this.find_replace_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.find_replace_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.find_replace_button.ForeColor = System.Drawing.Color.White;
+            this.find_replace_button.Location = new System.Drawing.Point(195, 47);
+            this.find_replace_button.Name = "find_replace_button";
+            this.find_replace_button.Size = new System.Drawing.Size(186, 23);
+            this.find_replace_button.TabIndex = 9;
+            this.find_replace_button.Text = "How to use Regular Expressions";
+            this.find_replace_button.UseVisualStyleBackColor = false;
+            this.find_replace_button.Click += new System.EventHandler(this.find_replace_button_Click);
+            // 
+            // highlight_button
+            // 
+            this.highlight_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.highlight_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.highlight_button.ForeColor = System.Drawing.Color.White;
+            this.highlight_button.Location = new System.Drawing.Point(90, 47);
+            this.highlight_button.Name = "highlight_button";
+            this.highlight_button.Size = new System.Drawing.Size(99, 23);
+            this.highlight_button.TabIndex = 8;
+            this.highlight_button.Text = "Highlight All";
+            this.highlight_button.UseVisualStyleBackColor = false;
+            this.highlight_button.Click += new System.EventHandler(this.highlight_button_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(13, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(71, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Find";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // WholeWord
+            // 
+            this.WholeWord.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.WholeWord.AutoSize = true;
+            this.WholeWord.ForeColor = System.Drawing.Color.White;
+            this.WholeWord.Location = new System.Drawing.Point(240, 24);
+            this.WholeWord.Name = "WholeWord";
+            this.WholeWord.Size = new System.Drawing.Size(129, 19);
+            this.WholeWord.TabIndex = 6;
+            this.WholeWord.Text = "Match Whole Word";
+            this.WholeWord.UseVisualStyleBackColor = true;
+            // 
+            // find_box
+            // 
+            this.find_box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.find_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.find_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.find_box.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.find_box.ForeColor = System.Drawing.Color.White;
+            this.find_box.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.find_box.Location = new System.Drawing.Point(13, 5);
+            this.find_box.Multiline = false;
+            this.find_box.Name = "find_box";
+            this.find_box.Size = new System.Drawing.Size(221, 38);
+            this.find_box.TabIndex = 5;
+            this.find_box.Text = "";
+            this.find_box.TextChanged += new System.EventHandler(this.find_box_TextChanged);
+            // 
+            // matchCase
+            // 
+            this.matchCase.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.matchCase.AutoSize = true;
+            this.matchCase.ForeColor = System.Drawing.Color.White;
+            this.matchCase.Location = new System.Drawing.Point(240, 5);
+            this.matchCase.Name = "matchCase";
+            this.matchCase.Size = new System.Drawing.Size(88, 19);
+            this.matchCase.TabIndex = 5;
+            this.matchCase.Text = "Match Case";
+            this.matchCase.UseVisualStyleBackColor = true;
+            // 
             // Notepad
             // 
             this.AllowDrop = true;
@@ -458,6 +589,7 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.find_panel);
             this.Controls.Add(this.SaveStatus);
             this.Controls.Add(this.richBox);
             this.Controls.Add(this.menuStrip1);
@@ -469,6 +601,8 @@ namespace Notepad
             this.Load += new System.EventHandler(this.Notepad_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.find_panel.ResumeLayout(false);
+            this.find_panel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,6 +649,15 @@ namespace Notepad
         private System.Windows.Forms.ToolStripMenuItem changeAppBackgroundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem highlightToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newNotepadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem changeHighlightColorToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem changeHighlightTextColorToolStripMenuItem;
+        private System.Windows.Forms.Panel find_panel;
+        private System.Windows.Forms.CheckBox matchCase;
+        private System.Windows.Forms.RichTextBox find_box;
+        private System.Windows.Forms.CheckBox WholeWord;
+        private System.Windows.Forms.Button find_replace_button;
+        private System.Windows.Forms.Button highlight_button;
+        private System.Windows.Forms.Button button1;
     }
 }
 
