@@ -214,6 +214,12 @@ namespace Notepad
             {
                 richBox.SelectedText = "";
             }
+            else if(richBox.SelectionLength == 0 && richBox.SelectionStart < richBox.Text.Length)
+            {
+                richBox.SelectionLength = 1;
+                richBox.SelectedText = "";
+                richBox.SelectionLength = 0;
+            }
 
             SaveStatus.Text = "Not Saved";
             saveStat = -1;
@@ -255,7 +261,7 @@ namespace Notepad
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
-            richBox.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
+            richBox.Font = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
         }
 
         private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -630,6 +636,33 @@ namespace Notepad
             richBox.SelectionAlignment = HorizontalAlignment.Right;
         }
 
+        private void boldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(richBox.SelectionFont.Bold)
+                richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style & ~FontStyle.Bold);
+            else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Bold);
+        }
+
+        private void italicToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richBox.SelectionFont.Italic)
+                richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style & ~FontStyle.Italic);
+            else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Italic);
+        }
+
+        private void underlineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richBox.SelectionFont.Underline)
+                richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style & ~FontStyle.Underline);
+            else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Underline);
+        }
+
+        private void strikeoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richBox.SelectionFont.Strikeout)
+                richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style & ~FontStyle.Strikeout);
+            else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Strikeout);
+        }
 
         private void mouseLeave_event(object sender, EventArgs e)
         {

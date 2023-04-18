@@ -54,6 +54,11 @@ namespace Notepad
             this.formatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.italicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.underlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.strikeoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highlightTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeAppBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,7 +123,7 @@ namespace Notepad
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(185, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(305, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mouseDoubleClick_event);
@@ -143,6 +148,7 @@ namespace Notepad
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             // 
             // newToolStripMenuItem
             // 
@@ -355,6 +361,7 @@ namespace Notepad
             this.formatToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.wordWrapToolStripMenuItem,
             this.fontToolStripMenuItem,
+            this.textToolStripMenuItem,
             this.highlightTextToolStripMenuItem,
             this.highlightToolStripMenuItem});
             this.formatToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -370,7 +377,7 @@ namespace Notepad
             this.wordWrapToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
             this.wordWrapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
@@ -380,9 +387,62 @@ namespace Notepad
             this.fontToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // textToolStripMenuItem
+            // 
+            this.textToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.textToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.boldToolStripMenuItem,
+            this.italicToolStripMenuItem,
+            this.underlineToolStripMenuItem,
+            this.strikeoutToolStripMenuItem});
+            this.textToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textToolStripMenuItem.Text = "Text";
+            // 
+            // boldToolStripMenuItem
+            // 
+            this.boldToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.boldToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
+            this.boldToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boldToolStripMenuItem.Text = "Bold";
+            this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
+            // 
+            // italicToolStripMenuItem
+            // 
+            this.italicToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.italicToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
+            this.italicToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.italicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.italicToolStripMenuItem.Text = "Italic";
+            this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
+            // 
+            // underlineToolStripMenuItem
+            // 
+            this.underlineToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.underlineToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
+            this.underlineToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.underlineToolStripMenuItem.Text = "Underline";
+            this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
+            // 
+            // strikeoutToolStripMenuItem
+            // 
+            this.strikeoutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.strikeoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.strikeoutToolStripMenuItem.Name = "strikeoutToolStripMenuItem";
+            this.strikeoutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.strikeoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.strikeoutToolStripMenuItem.Text = "Strikeout";
+            this.strikeoutToolStripMenuItem.Click += new System.EventHandler(this.strikeoutToolStripMenuItem_Click);
             // 
             // highlightTextToolStripMenuItem
             // 
@@ -395,7 +455,7 @@ namespace Notepad
             this.changeOpacityToolStripMenuItem});
             this.highlightTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
-            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.highlightTextToolStripMenuItem.Text = "Customize";
             // 
             // changeAppBackgroundToolStripMenuItem
@@ -454,7 +514,7 @@ namespace Notepad
             this.highlightToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
             this.highlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
+            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.highlightToolStripMenuItem.Text = "Highlight";
             this.highlightToolStripMenuItem.Click += new System.EventHandler(this.highlightToolStripMenuItem_Click);
             // 
@@ -901,7 +961,7 @@ namespace Notepad
             this.left_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.left_indent_button.BackgroundImage = global::Notepad.Properties.Resources.left;
             this.left_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.left_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.left_indent_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.left_indent_button.FlatAppearance.BorderSize = 0;
             this.left_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.left_indent_button.ForeColor = System.Drawing.Color.White;
@@ -918,7 +978,7 @@ namespace Notepad
             this.center_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.center_indent_button.BackgroundImage = global::Notepad.Properties.Resources.centered;
             this.center_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.center_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.center_indent_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.center_indent_button.FlatAppearance.BorderSize = 0;
             this.center_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.center_indent_button.ForeColor = System.Drawing.Color.White;
@@ -935,7 +995,7 @@ namespace Notepad
             this.right_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.right_indent_button.BackgroundImage = global::Notepad.Properties.Resources.right;
             this.right_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.right_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.right_indent_button.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.right_indent_button.FlatAppearance.BorderSize = 0;
             this.right_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right_indent_button.ForeColor = System.Drawing.Color.White;
@@ -1066,6 +1126,11 @@ namespace Notepad
         private System.Windows.Forms.Button center_indent_button;
         private System.Windows.Forms.Button right_indent_button;
         private System.Diagnostics.Process process1;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem boldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem italicToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem underlineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem strikeoutToolStripMenuItem;
     }
 }
 
