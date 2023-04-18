@@ -59,6 +59,7 @@ namespace Notepad
             this.changeTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeHighlightColorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.changeHighlightTextColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeOpacityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.highlightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,23 +79,53 @@ namespace Notepad
             this.WholeWord = new System.Windows.Forms.CheckBox();
             this.find_box = new System.Windows.Forms.RichTextBox();
             this.matchCase = new System.Windows.Forms.CheckBox();
+            this.replace_panel = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.how_to_use_reg_button = new System.Windows.Forms.Button();
+            this.highlight_button_replace = new System.Windows.Forms.Button();
+            this.replace_box = new System.Windows.Forms.RichTextBox();
+            this.replace_all_button = new System.Windows.Forms.Button();
+            this.replace_button = new System.Windows.Forms.Button();
+            this.find_button = new System.Windows.Forms.Button();
+            this.WholeWord2 = new System.Windows.Forms.CheckBox();
+            this.find_box_replace = new System.Windows.Forms.RichTextBox();
+            this.matchCase2 = new System.Windows.Forms.CheckBox();
+            this.TitleBox = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.left_indent_button = new System.Windows.Forms.Button();
+            this.center_indent_button = new System.Windows.Forms.Button();
+            this.right_indent_button = new System.Windows.Forms.Button();
+            this.process1 = new System.Diagnostics.Process();
             this.menuStrip1.SuspendLayout();
             this.find_panel.SuspendLayout();
+            this.replace_panel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStrip1.BackgroundImage")));
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
             this.formatToolStripMenuItem,
             this.helpToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(185, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mouseDoubleClick_event);
+            this.menuStrip1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown_event);
+            this.menuStrip1.MouseLeave += new System.EventHandler(this.mouseLeave_event);
+            this.menuStrip1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove_event);
+            this.menuStrip1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp_event);
             // 
             // fileToolStripMenuItem
             // 
@@ -269,6 +300,7 @@ namespace Notepad
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.deleteToolStripMenuItem.Enabled = false;
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
@@ -279,6 +311,7 @@ namespace Notepad
             // selectAllToolStripMenuItem
             // 
             this.selectAllToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.selectAllToolStripMenuItem.Enabled = false;
             this.selectAllToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             this.selectAllToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
@@ -304,6 +337,7 @@ namespace Notepad
             this.replaceToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
             this.replaceToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.replaceToolStripMenuItem.Text = "Replace";
+            this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
             // 
             // timeToolStripMenuItem
             // 
@@ -357,7 +391,8 @@ namespace Notepad
             this.changeAppBackgroundToolStripMenuItem,
             this.changeTextColorToolStripMenuItem,
             this.changeHighlightColorToolStripMenuItem1,
-            this.changeHighlightTextColorToolStripMenuItem});
+            this.changeHighlightTextColorToolStripMenuItem,
+            this.changeOpacityToolStripMenuItem});
             this.highlightTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
             this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
@@ -403,6 +438,16 @@ namespace Notepad
             this.changeHighlightTextColorToolStripMenuItem.Text = "Change Selected Text Color";
             this.changeHighlightTextColorToolStripMenuItem.Click += new System.EventHandler(this.changeHighlightTextColorToolStripMenuItem_Click);
             // 
+            // changeOpacityToolStripMenuItem
+            // 
+            this.changeOpacityToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.changeOpacityToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.changeOpacityToolStripMenuItem.Name = "changeOpacityToolStripMenuItem";
+            this.changeOpacityToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.O)));
+            this.changeOpacityToolStripMenuItem.Size = new System.Drawing.Size(256, 22);
+            this.changeOpacityToolStripMenuItem.Text = "Change Opacity";
+            this.changeOpacityToolStripMenuItem.Click += new System.EventHandler(this.changeOpacityToolStripMenuItem_Click);
+            // 
             // highlightToolStripMenuItem
             // 
             this.highlightToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
@@ -439,6 +484,7 @@ namespace Notepad
             this.richBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.richBox.AutoWordSelection = true;
             this.richBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
             this.richBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richBox.EnableAutoDragDrop = true;
@@ -446,6 +492,7 @@ namespace Notepad
             this.richBox.ForeColor = System.Drawing.Color.White;
             this.richBox.Location = new System.Drawing.Point(0, 27);
             this.richBox.Name = "richBox";
+            this.richBox.ShowSelectionMargin = true;
             this.richBox.Size = new System.Drawing.Size(800, 424);
             this.richBox.TabIndex = 2;
             this.richBox.Text = "";
@@ -462,10 +509,10 @@ namespace Notepad
             this.SaveStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SaveStatus.Enabled = false;
             this.SaveStatus.ForeColor = System.Drawing.Color.White;
-            this.SaveStatus.Location = new System.Drawing.Point(588, 8);
+            this.SaveStatus.Location = new System.Drawing.Point(471, 5);
             this.SaveStatus.MaximumSize = new System.Drawing.Size(200, 0);
             this.SaveStatus.Name = "SaveStatus";
-            this.SaveStatus.Size = new System.Drawing.Size(200, 16);
+            this.SaveStatus.Size = new System.Drawing.Size(61, 16);
             this.SaveStatus.TabIndex = 3;
             this.SaveStatus.Text = "Not Saved";
             this.SaveStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -505,12 +552,13 @@ namespace Notepad
             // find_replace_button
             // 
             this.find_replace_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.find_replace_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.find_replace_button.FlatAppearance.BorderSize = 0;
+            this.find_replace_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.find_replace_button.ForeColor = System.Drawing.Color.White;
             this.find_replace_button.Location = new System.Drawing.Point(195, 47);
             this.find_replace_button.Name = "find_replace_button";
             this.find_replace_button.Size = new System.Drawing.Size(186, 23);
-            this.find_replace_button.TabIndex = 9;
+            this.find_replace_button.TabIndex = 6;
             this.find_replace_button.Text = "How to use Regular Expressions";
             this.find_replace_button.UseVisualStyleBackColor = false;
             this.find_replace_button.Click += new System.EventHandler(this.find_replace_button_Click);
@@ -518,12 +566,13 @@ namespace Notepad
             // highlight_button
             // 
             this.highlight_button.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.highlight_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.highlight_button.FlatAppearance.BorderSize = 0;
+            this.highlight_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.highlight_button.ForeColor = System.Drawing.Color.White;
             this.highlight_button.Location = new System.Drawing.Point(90, 47);
             this.highlight_button.Name = "highlight_button";
             this.highlight_button.Size = new System.Drawing.Size(99, 23);
-            this.highlight_button.TabIndex = 8;
+            this.highlight_button.TabIndex = 5;
             this.highlight_button.Text = "Highlight All";
             this.highlight_button.UseVisualStyleBackColor = false;
             this.highlight_button.Click += new System.EventHandler(this.highlight_button_Click);
@@ -531,12 +580,13 @@ namespace Notepad
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(13, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(71, 23);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Find";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -549,7 +599,7 @@ namespace Notepad
             this.WholeWord.Location = new System.Drawing.Point(240, 24);
             this.WholeWord.Name = "WholeWord";
             this.WholeWord.Size = new System.Drawing.Size(129, 19);
-            this.WholeWord.TabIndex = 6;
+            this.WholeWord.TabIndex = 3;
             this.WholeWord.Text = "Match Whole Word";
             this.WholeWord.UseVisualStyleBackColor = true;
             // 
@@ -565,7 +615,7 @@ namespace Notepad
             this.find_box.Multiline = false;
             this.find_box.Name = "find_box";
             this.find_box.Size = new System.Drawing.Size(221, 38);
-            this.find_box.TabIndex = 5;
+            this.find_box.TabIndex = 1;
             this.find_box.Text = "";
             this.find_box.TextChanged += new System.EventHandler(this.find_box_TextChanged);
             // 
@@ -577,9 +627,336 @@ namespace Notepad
             this.matchCase.Location = new System.Drawing.Point(240, 5);
             this.matchCase.Name = "matchCase";
             this.matchCase.Size = new System.Drawing.Size(88, 19);
-            this.matchCase.TabIndex = 5;
+            this.matchCase.TabIndex = 2;
             this.matchCase.Text = "Match Case";
             this.matchCase.UseVisualStyleBackColor = true;
+            // 
+            // replace_panel
+            // 
+            this.replace_panel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.replace_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.replace_panel.Controls.Add(this.textBox2);
+            this.replace_panel.Controls.Add(this.textBox1);
+            this.replace_panel.Controls.Add(this.how_to_use_reg_button);
+            this.replace_panel.Controls.Add(this.highlight_button_replace);
+            this.replace_panel.Controls.Add(this.replace_box);
+            this.replace_panel.Controls.Add(this.replace_all_button);
+            this.replace_panel.Controls.Add(this.replace_button);
+            this.replace_panel.Controls.Add(this.find_button);
+            this.replace_panel.Controls.Add(this.WholeWord2);
+            this.replace_panel.Controls.Add(this.find_box_replace);
+            this.replace_panel.Controls.Add(this.matchCase2);
+            this.replace_panel.Location = new System.Drawing.Point(203, 332);
+            this.replace_panel.Name = "replace_panel";
+            this.replace_panel.Size = new System.Drawing.Size(391, 119);
+            this.replace_panel.TabIndex = 10;
+            this.replace_panel.Visible = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Enabled = false;
+            this.textBox2.ForeColor = System.Drawing.Color.White;
+            this.textBox2.Location = new System.Drawing.Point(254, 3);
+            this.textBox2.MaximumSize = new System.Drawing.Size(200, 0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(74, 16);
+            this.textBox2.TabIndex = 12;
+            this.textBox2.Text = "Replace:";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.WordWrap = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(67, 3);
+            this.textBox1.MaximumSize = new System.Drawing.Size(200, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(74, 16);
+            this.textBox1.TabIndex = 11;
+            this.textBox1.Text = "Find:";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.WordWrap = false;
+            // 
+            // how_to_use_reg_button
+            // 
+            this.how_to_use_reg_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.how_to_use_reg_button.FlatAppearance.BorderSize = 0;
+            this.how_to_use_reg_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.how_to_use_reg_button.ForeColor = System.Drawing.Color.White;
+            this.how_to_use_reg_button.Location = new System.Drawing.Point(240, 66);
+            this.how_to_use_reg_button.Name = "how_to_use_reg_button";
+            this.how_to_use_reg_button.Size = new System.Drawing.Size(141, 23);
+            this.how_to_use_reg_button.TabIndex = 13;
+            this.how_to_use_reg_button.Text = "How to use Reg. Expr.";
+            this.how_to_use_reg_button.UseVisualStyleBackColor = false;
+            this.how_to_use_reg_button.Click += new System.EventHandler(this.how_to_use_reg_button_Click);
+            // 
+            // highlight_button_replace
+            // 
+            this.highlight_button_replace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.highlight_button_replace.FlatAppearance.BorderSize = 0;
+            this.highlight_button_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.highlight_button_replace.ForeColor = System.Drawing.Color.White;
+            this.highlight_button_replace.Location = new System.Drawing.Point(167, 91);
+            this.highlight_button_replace.Name = "highlight_button_replace";
+            this.highlight_button_replace.Size = new System.Drawing.Size(98, 23);
+            this.highlight_button_replace.TabIndex = 9;
+            this.highlight_button_replace.Text = "Highlight All";
+            this.highlight_button_replace.UseVisualStyleBackColor = false;
+            this.highlight_button_replace.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // replace_box
+            // 
+            this.replace_box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.replace_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.replace_box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.replace_box.EnableAutoDragDrop = true;
+            this.replace_box.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.replace_box.ForeColor = System.Drawing.Color.White;
+            this.replace_box.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.replace_box.Location = new System.Drawing.Point(205, 22);
+            this.replace_box.Multiline = false;
+            this.replace_box.Name = "replace_box";
+            this.replace_box.Size = new System.Drawing.Size(176, 38);
+            this.replace_box.TabIndex = 2;
+            this.replace_box.Text = "";
+            // 
+            // replace_all_button
+            // 
+            this.replace_all_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.replace_all_button.FlatAppearance.BorderSize = 0;
+            this.replace_all_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replace_all_button.ForeColor = System.Drawing.Color.White;
+            this.replace_all_button.Location = new System.Drawing.Point(271, 91);
+            this.replace_all_button.Name = "replace_all_button";
+            this.replace_all_button.Size = new System.Drawing.Size(110, 23);
+            this.replace_all_button.TabIndex = 10;
+            this.replace_all_button.Text = "Replace All";
+            this.replace_all_button.UseVisualStyleBackColor = false;
+            this.replace_all_button.Click += new System.EventHandler(this.replace_all_button_Click);
+            // 
+            // replace_button
+            // 
+            this.replace_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.replace_button.FlatAppearance.BorderSize = 0;
+            this.replace_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.replace_button.ForeColor = System.Drawing.Color.White;
+            this.replace_button.Location = new System.Drawing.Point(79, 91);
+            this.replace_button.Name = "replace_button";
+            this.replace_button.Size = new System.Drawing.Size(82, 23);
+            this.replace_button.TabIndex = 8;
+            this.replace_button.Text = "Replace\r\n";
+            this.replace_button.UseVisualStyleBackColor = false;
+            this.replace_button.Click += new System.EventHandler(this.replace_button_Click);
+            // 
+            // find_button
+            // 
+            this.find_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.find_button.FlatAppearance.BorderSize = 0;
+            this.find_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.find_button.ForeColor = System.Drawing.Color.White;
+            this.find_button.Location = new System.Drawing.Point(13, 91);
+            this.find_button.Name = "find_button";
+            this.find_button.Size = new System.Drawing.Size(60, 23);
+            this.find_button.TabIndex = 7;
+            this.find_button.Text = "Find";
+            this.find_button.UseVisualStyleBackColor = false;
+            this.find_button.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // WholeWord2
+            // 
+            this.WholeWord2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.WholeWord2.AutoSize = true;
+            this.WholeWord2.ForeColor = System.Drawing.Color.White;
+            this.WholeWord2.Location = new System.Drawing.Point(105, 69);
+            this.WholeWord2.Name = "WholeWord2";
+            this.WholeWord2.Size = new System.Drawing.Size(129, 19);
+            this.WholeWord2.TabIndex = 12;
+            this.WholeWord2.Text = "Match Whole Word";
+            this.WholeWord2.UseVisualStyleBackColor = true;
+            // 
+            // find_box_replace
+            // 
+            this.find_box_replace.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.find_box_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.find_box_replace.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.find_box_replace.EnableAutoDragDrop = true;
+            this.find_box_replace.Font = new System.Drawing.Font("Times New Roman", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.find_box_replace.ForeColor = System.Drawing.Color.White;
+            this.find_box_replace.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.find_box_replace.Location = new System.Drawing.Point(13, 22);
+            this.find_box_replace.Multiline = false;
+            this.find_box_replace.Name = "find_box_replace";
+            this.find_box_replace.Size = new System.Drawing.Size(176, 38);
+            this.find_box_replace.TabIndex = 1;
+            this.find_box_replace.Text = "";
+            // 
+            // matchCase2
+            // 
+            this.matchCase2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.matchCase2.AutoSize = true;
+            this.matchCase2.ForeColor = System.Drawing.Color.White;
+            this.matchCase2.Location = new System.Drawing.Point(13, 70);
+            this.matchCase2.Name = "matchCase2";
+            this.matchCase2.Size = new System.Drawing.Size(88, 19);
+            this.matchCase2.TabIndex = 11;
+            this.matchCase2.Text = "Match Case";
+            this.matchCase2.UseVisualStyleBackColor = true;
+            // 
+            // TitleBox
+            // 
+            this.TitleBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TitleBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TitleBox.Enabled = false;
+            this.TitleBox.ForeColor = System.Drawing.Color.White;
+            this.TitleBox.Location = new System.Drawing.Point(97, 5);
+            this.TitleBox.MaximumSize = new System.Drawing.Size(200, 0);
+            this.TitleBox.Name = "TitleBox";
+            this.TitleBox.ReadOnly = true;
+            this.TitleBox.Size = new System.Drawing.Size(200, 16);
+            this.TitleBox.TabIndex = 11;
+            this.TitleBox.Text = "Untitled";
+            this.TitleBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TitleBox.WordWrap = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.TitleBox);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.SaveStatus);
+            this.panel1.Controls.Add(this.button3);
+            this.panel1.Location = new System.Drawing.Point(188, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(612, 24);
+            this.panel1.TabIndex = 12;
+            this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mouseDoubleClick_event);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown_event);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mouseMove_event);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp_event);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.button4.BackgroundImage = global::Notepad.Properties.Resources.close;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.White;
+            this.button4.Location = new System.Drawing.Point(586, 0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(24, 24);
+            this.button4.TabIndex = 16;
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.button2.BackgroundImage = global::Notepad.Properties.Resources.maximize;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(562, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(24, 24);
+            this.button2.TabIndex = 15;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.button3.BackgroundImage = global::Notepad.Properties.Resources.minimize;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(538, 0);
+            this.button3.Name = "button3";
+            this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button3.Size = new System.Drawing.Size(24, 24);
+            this.button3.TabIndex = 14;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // left_indent_button
+            // 
+            this.left_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.left_indent_button.BackgroundImage = global::Notepad.Properties.Resources.left;
+            this.left_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.left_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.left_indent_button.FlatAppearance.BorderSize = 0;
+            this.left_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.left_indent_button.ForeColor = System.Drawing.Color.White;
+            this.left_indent_button.Location = new System.Drawing.Point(188, 0);
+            this.left_indent_button.Name = "left_indent_button";
+            this.left_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.left_indent_button.Size = new System.Drawing.Size(24, 24);
+            this.left_indent_button.TabIndex = 17;
+            this.left_indent_button.UseVisualStyleBackColor = false;
+            this.left_indent_button.Click += new System.EventHandler(this.left_indent_button_Click);
+            // 
+            // center_indent_button
+            // 
+            this.center_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.center_indent_button.BackgroundImage = global::Notepad.Properties.Resources.centered;
+            this.center_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.center_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.center_indent_button.FlatAppearance.BorderSize = 0;
+            this.center_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.center_indent_button.ForeColor = System.Drawing.Color.White;
+            this.center_indent_button.Location = new System.Drawing.Point(212, 0);
+            this.center_indent_button.Name = "center_indent_button";
+            this.center_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.center_indent_button.Size = new System.Drawing.Size(24, 24);
+            this.center_indent_button.TabIndex = 18;
+            this.center_indent_button.UseVisualStyleBackColor = false;
+            this.center_indent_button.Click += new System.EventHandler(this.center_indent_button_Click);
+            // 
+            // right_indent_button
+            // 
+            this.right_indent_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.right_indent_button.BackgroundImage = global::Notepad.Properties.Resources.right;
+            this.right_indent_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.right_indent_button.DialogResult = System.Windows.Forms.DialogResult.Abort;
+            this.right_indent_button.FlatAppearance.BorderSize = 0;
+            this.right_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.right_indent_button.ForeColor = System.Drawing.Color.White;
+            this.right_indent_button.Location = new System.Drawing.Point(236, 0);
+            this.right_indent_button.Name = "right_indent_button";
+            this.right_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.right_indent_button.Size = new System.Drawing.Size(24, 24);
+            this.right_indent_button.TabIndex = 19;
+            this.right_indent_button.UseVisualStyleBackColor = false;
+            this.right_indent_button.Click += new System.EventHandler(this.right_indent_button_Click);
+            // 
+            // process1
+            // 
+            this.process1.StartInfo.Domain = "";
+            this.process1.StartInfo.LoadUserProfile = false;
+            this.process1.StartInfo.Password = null;
+            this.process1.StartInfo.StandardErrorEncoding = null;
+            this.process1.StartInfo.StandardInputEncoding = null;
+            this.process1.StartInfo.StandardOutputEncoding = null;
+            this.process1.StartInfo.UserName = "";
+            this.process1.SynchronizingObject = this;
             // 
             // Notepad
             // 
@@ -589,11 +966,16 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.right_indent_button);
+            this.Controls.Add(this.center_indent_button);
+            this.Controls.Add(this.left_indent_button);
+            this.Controls.Add(this.replace_panel);
             this.Controls.Add(this.find_panel);
-            this.Controls.Add(this.SaveStatus);
             this.Controls.Add(this.richBox);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Notepad";
             this.Opacity = 0.95D;
@@ -603,6 +985,10 @@ namespace Notepad
             this.menuStrip1.PerformLayout();
             this.find_panel.ResumeLayout(false);
             this.find_panel.PerformLayout();
+            this.replace_panel.ResumeLayout(false);
+            this.replace_panel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,6 +1044,28 @@ namespace Notepad
         private System.Windows.Forms.Button find_replace_button;
         private System.Windows.Forms.Button highlight_button;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel replace_panel;
+        private System.Windows.Forms.Button how_to_use_reg_button;
+        private System.Windows.Forms.Button highlight_button_replace;
+        private System.Windows.Forms.RichTextBox replace_box;
+        private System.Windows.Forms.Button replace_all_button;
+        private System.Windows.Forms.Button replace_button;
+        private System.Windows.Forms.Button find_button;
+        private System.Windows.Forms.CheckBox WholeWord2;
+        private System.Windows.Forms.RichTextBox find_box_replace;
+        private System.Windows.Forms.CheckBox matchCase2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TitleBox;
+        private System.Windows.Forms.ToolStripMenuItem changeOpacityToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button left_indent_button;
+        private System.Windows.Forms.Button center_indent_button;
+        private System.Windows.Forms.Button right_indent_button;
+        private System.Diagnostics.Process process1;
     }
 }
 
