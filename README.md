@@ -75,5 +75,5 @@ You can use Regular Expressions(Regex) to find faster certain items in a text fi
 
 ### Other
 
-`F1` - Open this page
+`F1` - Open this page 
 
