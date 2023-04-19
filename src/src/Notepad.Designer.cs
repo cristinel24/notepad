@@ -895,11 +895,8 @@ namespace Notepad
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.TitleBox);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.SaveStatus);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Location = new System.Drawing.Point(188, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(612, 24);
@@ -918,7 +915,7 @@ namespace Notepad
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(586, -5);
+            this.button4.Location = new System.Drawing.Point(776, -3);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(24, 24);
             this.button4.TabIndex = 16;
@@ -934,7 +931,7 @@ namespace Notepad
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(562, -5);
+            this.button2.Location = new System.Drawing.Point(752, -3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(24, 24);
             this.button2.TabIndex = 15;
@@ -951,7 +948,7 @@ namespace Notepad
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(538, -5);
+            this.button3.Location = new System.Drawing.Point(728, -3);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(24, 24);
@@ -968,7 +965,7 @@ namespace Notepad
             this.left_indent_button.FlatAppearance.BorderSize = 0;
             this.left_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.left_indent_button.ForeColor = System.Drawing.Color.White;
-            this.left_indent_button.Location = new System.Drawing.Point(180, 0);
+            this.left_indent_button.Location = new System.Drawing.Point(190, 0);
             this.left_indent_button.Name = "left_indent_button";
             this.left_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.left_indent_button.Size = new System.Drawing.Size(24, 24);
@@ -985,7 +982,7 @@ namespace Notepad
             this.center_indent_button.FlatAppearance.BorderSize = 0;
             this.center_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.center_indent_button.ForeColor = System.Drawing.Color.White;
-            this.center_indent_button.Location = new System.Drawing.Point(204, 0);
+            this.center_indent_button.Location = new System.Drawing.Point(214, 0);
             this.center_indent_button.Name = "center_indent_button";
             this.center_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.center_indent_button.Size = new System.Drawing.Size(24, 24);
@@ -1002,7 +999,7 @@ namespace Notepad
             this.right_indent_button.FlatAppearance.BorderSize = 0;
             this.right_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right_indent_button.ForeColor = System.Drawing.Color.White;
-            this.right_indent_button.Location = new System.Drawing.Point(228, 0);
+            this.right_indent_button.Location = new System.Drawing.Point(238, 0);
             this.right_indent_button.Name = "right_indent_button";
             this.right_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.right_indent_button.Size = new System.Drawing.Size(24, 24);
@@ -1018,13 +1015,16 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.left_indent_button);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.replace_panel);
-            this.Controls.Add(this.center_indent_button);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.find_panel);
-            this.Controls.Add(this.right_indent_button);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.richBox);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.left_indent_button);
+            this.Controls.Add(this.center_indent_button);
+            this.Controls.Add(this.right_indent_button);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

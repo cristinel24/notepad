@@ -8,7 +8,6 @@ D:\FII\Extra\Notepad\bin\Debug\net5.0-windows\Notepad.pdb
 D:\FII\Extra\Notepad\bin\Debug\net5.0-windows\Siticone.Desktop.UI.dll
 D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.Properties.Resources.resources
 D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.EnterValue.resources
-D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.Find_Window.resources
 D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.Notepad.resources
 D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.Save_Warning.resources
 D:\FII\Extra\Notepad\obj\Debug\net5.0-windows\Notepad.csproj.GenerateResource.cache

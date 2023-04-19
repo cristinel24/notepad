@@ -16,11 +16,11 @@ namespace Notepad
 {
     public partial class Notepad : Form
     {
-        string filePath = "";
-        Color currentColor;
-        int saveStat = 0, list_iterator = 0, lastIndex = 0, count = -1;
-        public Color currentBackColor = Color.FromArgb(39,39,39), currentForeColor=Color.Black, currentHighlightColor=Color.DarkBlue, currentHighlighttextColor = Color.White;
-        bool mouseDown = false, fromSave = false, fromOpen = false;
+        private string filePath = "";
+        private Color currentColor;
+        private int saveStat = 0, list_iterator = 0, lastIndex = 0, count = -1;
+        protected Color currentBackColor = Color.FromArgb(39,39,39), currentForeColor=Color.Black, currentHighlightColor=Color.DarkBlue, currentHighlighttextColor = Color.White;
+        private bool mouseDown = false, fromSave = false, fromOpen = false;
         private Point offset;
 
         public Notepad(string name = "Notepad")
@@ -371,7 +371,7 @@ namespace Notepad
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.Enter) && find_panel.Focused)
+            if (keyData == (Keys.Enter) && find_box.Focused)
             {
                 this.button1_Click(this, EventArgs.Empty);
                 return true;
@@ -822,17 +822,6 @@ namespace Notepad
                 find_panel.Visible = false;
                 find_panel.Enabled = false;
             }
-
-            
-
-            //Find_Window f = new Find_Window(this);
-            ////richBox.Text += f.getInstances().ToString();
-            //if(f.getInstances() == 1)
-            //    f.Show();
-        }
-        public Color getHighlightColor()
-        {
-            return currentHighlightColor;
         }
     }
 
