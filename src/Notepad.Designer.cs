@@ -29,6 +29,7 @@ namespace Notepad
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Notepad));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,7 +105,8 @@ namespace Notepad
             this.left_indent_button = new System.Windows.Forms.Button();
             this.center_indent_button = new System.Windows.Forms.Button();
             this.right_indent_button = new System.Windows.Forms.Button();
-            this.process1 = new System.Diagnostics.Process();
+            this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
+            this.siticoneShadowForm1 = new Siticone.Desktop.UI.WinForms.SiticoneShadowForm(this.components);
             this.menuStrip1.SuspendLayout();
             this.find_panel.SuspendLayout();
             this.replace_panel.SuspendLayout();
@@ -550,10 +552,10 @@ namespace Notepad
             this.richBox.EnableAutoDragDrop = true;
             this.richBox.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richBox.ForeColor = System.Drawing.Color.White;
-            this.richBox.Location = new System.Drawing.Point(5, 22);
+            this.richBox.Location = new System.Drawing.Point(5, 27);
             this.richBox.Name = "richBox";
             this.richBox.ShowSelectionMargin = true;
-            this.richBox.Size = new System.Drawing.Size(792, 419);
+            this.richBox.Size = new System.Drawing.Size(792, 414);
             this.richBox.TabIndex = 2;
             this.richBox.Text = "";
             this.richBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -966,7 +968,7 @@ namespace Notepad
             this.left_indent_button.FlatAppearance.BorderSize = 0;
             this.left_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.left_indent_button.ForeColor = System.Drawing.Color.White;
-            this.left_indent_button.Location = new System.Drawing.Point(188, 0);
+            this.left_indent_button.Location = new System.Drawing.Point(180, 0);
             this.left_indent_button.Name = "left_indent_button";
             this.left_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.left_indent_button.Size = new System.Drawing.Size(24, 24);
@@ -983,7 +985,7 @@ namespace Notepad
             this.center_indent_button.FlatAppearance.BorderSize = 0;
             this.center_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.center_indent_button.ForeColor = System.Drawing.Color.White;
-            this.center_indent_button.Location = new System.Drawing.Point(212, 0);
+            this.center_indent_button.Location = new System.Drawing.Point(204, 0);
             this.center_indent_button.Name = "center_indent_button";
             this.center_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.center_indent_button.Size = new System.Drawing.Size(24, 24);
@@ -1000,24 +1002,13 @@ namespace Notepad
             this.right_indent_button.FlatAppearance.BorderSize = 0;
             this.right_indent_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.right_indent_button.ForeColor = System.Drawing.Color.White;
-            this.right_indent_button.Location = new System.Drawing.Point(236, 0);
+            this.right_indent_button.Location = new System.Drawing.Point(228, 0);
             this.right_indent_button.Name = "right_indent_button";
             this.right_indent_button.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.right_indent_button.Size = new System.Drawing.Size(24, 24);
             this.right_indent_button.TabIndex = 19;
             this.right_indent_button.UseVisualStyleBackColor = false;
             this.right_indent_button.Click += new System.EventHandler(this.right_indent_button_Click);
-            // 
-            // process1
-            // 
-            this.process1.StartInfo.Domain = "";
-            this.process1.StartInfo.LoadUserProfile = false;
-            this.process1.StartInfo.Password = null;
-            this.process1.StartInfo.StandardErrorEncoding = null;
-            this.process1.StartInfo.StandardInputEncoding = null;
-            this.process1.StartInfo.StandardOutputEncoding = null;
-            this.process1.StartInfo.UserName = "";
-            this.process1.SynchronizingObject = this;
             // 
             // Notepad
             // 
@@ -1027,16 +1018,17 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.right_indent_button);
-            this.Controls.Add(this.center_indent_button);
             this.Controls.Add(this.left_indent_button);
             this.Controls.Add(this.replace_panel);
+            this.Controls.Add(this.center_indent_button);
             this.Controls.Add(this.find_panel);
+            this.Controls.Add(this.right_indent_button);
             this.Controls.Add(this.richBox);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Notepad";
             this.Opacity = 0.95D;
@@ -1126,12 +1118,13 @@ namespace Notepad
         private System.Windows.Forms.Button left_indent_button;
         private System.Windows.Forms.Button center_indent_button;
         private System.Windows.Forms.Button right_indent_button;
-        private System.Diagnostics.Process process1;
         private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem boldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem italicToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem underlineToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem strikeoutToolStripMenuItem;
+        private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl1;
+        private Siticone.Desktop.UI.WinForms.SiticoneShadowForm siticoneShadowForm1;
     }
 }
 

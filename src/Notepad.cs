@@ -28,6 +28,7 @@ namespace Notepad
             InitializeComponent();
             currentColor = richBox.SelectionBackColor;
             panel1.SendToBack();
+            siticoneShadowForm1.SetShadowForm(this);
         }
 
         private const int grip = 6;
@@ -179,6 +180,9 @@ namespace Notepad
         {
             //if(scrollbar != null) scrollbar.ContextMenuStrip.BackColor = currentBackColor;
 
+           
+
+
             richBox.Font = richBox.Font;
             richBox.BackColor = richBox.BackColor;
             richBox.SelectionBackColor = currentColor;
@@ -328,7 +332,16 @@ namespace Notepad
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad");
+            var process = new Process();
+
+            var startInfo = new ProcessStartInfo
+            {
+                WindowStyle = ProcessWindowStyle.Hidden,
+                ArgumentList =  {"/c start https://github.com/cristinel24/notepad" },
+                FileName = "cmd"
+            };
+            process.StartInfo = startInfo;
+            process.Start();
         }
 
         private void highlightToolStripMenuItem_Click(object sender, EventArgs e)
@@ -822,4 +835,6 @@ namespace Notepad
             return currentHighlightColor;
         }
     }
+
+   
 }

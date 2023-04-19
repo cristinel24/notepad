@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "Yner+yEMOo6znKCtZ9xRLFSGh06olgC1R0SlEXfXbMY+X0StML5tlTwQH5uD+ThXXhr4jOyYQHGnzfmgt5Qh2g==",
+  "dgSpecHash": "+eJbOTS3DoLv3hI6JKG9gBRA+1ceHJ84rKwpDa+pvn3t+l/PeJ1L3qNNmdKXw0EqlHQYK3LLDdp0UU4bDNNJmw==",
   "success": true,
-  "projectFilePath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "projectFilePath": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\crist\\.nuget\\packages\\siticone.desktop.ui\\2.1.1\\siticone.desktop.ui.2.1.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Siticone.Desktop.UI 2.1.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Siticone.Desktop.UI",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }
