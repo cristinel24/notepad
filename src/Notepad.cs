@@ -28,7 +28,54 @@ namespace Notepad
             InitializeComponent();
             currentColor = richBox.SelectionBackColor;
             panel1.SendToBack();
+        }
 
+        private const int grip = 6;
+
+        private const int caption = 40;
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {
+                Point p = new Point(m.LParam.ToInt32());
+                p = this.PointToClient(p);
+                if (p.Y <= caption && p.Y >= grip)
+                {
+                    m.Result = (IntPtr)2;
+                    return;
+                }
+                if (p.X >= this.ClientSize.Width - grip && p.Y >= this.ClientSize.Height - grip)
+                {
+                    m.Result = (IntPtr)17;
+                    return;
+                }
+                if (p.X <= grip && p.Y >= this.ClientSize.Height - grip)
+                {
+                    m.Result = (IntPtr)16;
+                    return;
+                }
+                if (p.X <= grip)
+                {
+                    m.Result = (IntPtr)10;
+                    return;
+                }
+                if (p.X >= ClientSize.Width - grip)
+                {
+                    m.Result = (IntPtr)11;
+                    return;
+                }
+                if (p.Y <= grip)
+                {
+                    m.Result = (IntPtr)12;
+                    return;
+                }
+                if (p.Y >= this.ClientSize.Height - grip)
+                {
+                    m.Result = (IntPtr)15;
+                    return;
+                }
+            }
+            base.WndProc(ref m);
         }
 
         private void Notepad_Load(object sender, EventArgs e)
@@ -38,7 +85,7 @@ namespace Notepad
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (saveStat < 1)
+            if (SaveStatus.Text == "Not Saved")
             {
                 Save_Warning f2 = new Save_Warning(TitleBox.Text, filePath, this);
                 f2.ShowDialog();
@@ -136,16 +183,17 @@ namespace Notepad
             richBox.BackColor = richBox.BackColor;
             richBox.SelectionBackColor = currentColor;
 
-            if (saveStat == 1 || fromSave || fromOpen)
+            if (fromSave || fromOpen)
             {
                 SaveStatus.Text = "Saved";
                 saveStat = -1;
                 if (fromSave) fromSave = false;
                 if (fromOpen) fromOpen = false;
             } 
-            else if(saveStat != 1)
+            else
             {
                 SaveStatus.Text = "Not Saved";
+                saveStat = -1;
             }
 
             if (richBox.Text.Length > 0)
@@ -662,6 +710,11 @@ namespace Notepad
             if (richBox.SelectionFont.Strikeout)
                 richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style & ~FontStyle.Strikeout);
             else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Strikeout);
+        }
+
+        private void find_box_replace_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void mouseLeave_event(object sender, EventArgs e)

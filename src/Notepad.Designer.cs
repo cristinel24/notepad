@@ -123,7 +123,7 @@ namespace Notepad
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(305, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(185, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.mouseDoubleClick_event);
@@ -377,7 +377,7 @@ namespace Notepad
             this.wordWrapToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
             this.wordWrapToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.W)));
-            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.wordWrapToolStripMenuItem.Text = "Word wrap";
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
@@ -387,7 +387,7 @@ namespace Notepad
             this.fontToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
             this.fontToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
-            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.fontToolStripMenuItem.Text = "Font";
             this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
@@ -401,7 +401,7 @@ namespace Notepad
             this.strikeoutToolStripMenuItem});
             this.textToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.textToolStripMenuItem.Name = "textToolStripMenuItem";
-            this.textToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.textToolStripMenuItem.Text = "Text";
             // 
             // boldToolStripMenuItem
@@ -410,7 +410,7 @@ namespace Notepad
             this.boldToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.boldToolStripMenuItem.Name = "boldToolStripMenuItem";
             this.boldToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.boldToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.boldToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.boldToolStripMenuItem.Text = "Bold";
             this.boldToolStripMenuItem.Click += new System.EventHandler(this.boldToolStripMenuItem_Click);
             // 
@@ -420,7 +420,7 @@ namespace Notepad
             this.italicToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.italicToolStripMenuItem.Name = "italicToolStripMenuItem";
             this.italicToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.italicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.italicToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.italicToolStripMenuItem.Text = "Italic";
             this.italicToolStripMenuItem.Click += new System.EventHandler(this.italicToolStripMenuItem_Click);
             // 
@@ -430,7 +430,7 @@ namespace Notepad
             this.underlineToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.underlineToolStripMenuItem.Name = "underlineToolStripMenuItem";
             this.underlineToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.underlineToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.underlineToolStripMenuItem.Text = "Underline";
             this.underlineToolStripMenuItem.Click += new System.EventHandler(this.underlineToolStripMenuItem_Click);
             // 
@@ -440,7 +440,7 @@ namespace Notepad
             this.strikeoutToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.strikeoutToolStripMenuItem.Name = "strikeoutToolStripMenuItem";
             this.strikeoutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.strikeoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.strikeoutToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.strikeoutToolStripMenuItem.Text = "Strikeout";
             this.strikeoutToolStripMenuItem.Click += new System.EventHandler(this.strikeoutToolStripMenuItem_Click);
             // 
@@ -455,7 +455,7 @@ namespace Notepad
             this.changeOpacityToolStripMenuItem});
             this.highlightTextToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightTextToolStripMenuItem.Name = "highlightTextToolStripMenuItem";
-            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.highlightTextToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.highlightTextToolStripMenuItem.Text = "Customize";
             // 
             // changeAppBackgroundToolStripMenuItem
@@ -514,7 +514,7 @@ namespace Notepad
             this.highlightToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.highlightToolStripMenuItem.Name = "highlightToolStripMenuItem";
             this.highlightToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.highlightToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.highlightToolStripMenuItem.Text = "Highlight";
             this.highlightToolStripMenuItem.Click += new System.EventHandler(this.highlightToolStripMenuItem_Click);
             // 
@@ -550,10 +550,10 @@ namespace Notepad
             this.richBox.EnableAutoDragDrop = true;
             this.richBox.Font = new System.Drawing.Font("Times New Roman", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richBox.ForeColor = System.Drawing.Color.White;
-            this.richBox.Location = new System.Drawing.Point(0, 27);
+            this.richBox.Location = new System.Drawing.Point(5, 22);
             this.richBox.Name = "richBox";
             this.richBox.ShowSelectionMargin = true;
-            this.richBox.Size = new System.Drawing.Size(800, 424);
+            this.richBox.Size = new System.Drawing.Size(792, 419);
             this.richBox.TabIndex = 2;
             this.richBox.Text = "";
             this.richBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -569,7 +569,7 @@ namespace Notepad
             this.SaveStatus.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SaveStatus.Enabled = false;
             this.SaveStatus.ForeColor = System.Drawing.Color.White;
-            this.SaveStatus.Location = new System.Drawing.Point(471, 5);
+            this.SaveStatus.Location = new System.Drawing.Point(471, 0);
             this.SaveStatus.MaximumSize = new System.Drawing.Size(200, 0);
             this.SaveStatus.Name = "SaveStatus";
             this.SaveStatus.Size = new System.Drawing.Size(61, 16);
@@ -857,6 +857,7 @@ namespace Notepad
             this.find_box_replace.Size = new System.Drawing.Size(176, 38);
             this.find_box_replace.TabIndex = 1;
             this.find_box_replace.Text = "";
+            this.find_box_replace.TextChanged += new System.EventHandler(this.find_box_replace_TextChanged);
             // 
             // matchCase2
             // 
@@ -877,7 +878,7 @@ namespace Notepad
             this.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TitleBox.Enabled = false;
             this.TitleBox.ForeColor = System.Drawing.Color.White;
-            this.TitleBox.Location = new System.Drawing.Point(97, 5);
+            this.TitleBox.Location = new System.Drawing.Point(97, 0);
             this.TitleBox.MaximumSize = new System.Drawing.Size(200, 0);
             this.TitleBox.Name = "TitleBox";
             this.TitleBox.ReadOnly = true;
@@ -897,7 +898,7 @@ namespace Notepad
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.SaveStatus);
             this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(188, 0);
+            this.panel1.Location = new System.Drawing.Point(188, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(612, 24);
             this.panel1.TabIndex = 12;
@@ -915,7 +916,7 @@ namespace Notepad
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(586, 0);
+            this.button4.Location = new System.Drawing.Point(586, -5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(24, 24);
             this.button4.TabIndex = 16;
@@ -931,7 +932,7 @@ namespace Notepad
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(562, 0);
+            this.button2.Location = new System.Drawing.Point(562, -5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(24, 24);
             this.button2.TabIndex = 15;
@@ -948,7 +949,7 @@ namespace Notepad
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(538, 0);
+            this.button3.Location = new System.Drawing.Point(538, -5);
             this.button3.Name = "button3";
             this.button3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.button3.Size = new System.Drawing.Size(24, 24);
