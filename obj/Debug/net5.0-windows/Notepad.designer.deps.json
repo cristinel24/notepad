@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v5.0": {
-      "Notepad/1.0.0": {
-        "dependencies": {
-          "Siticone.Desktop.UI": "2.1.1"
-        },
-        "runtime": {
-          "Notepad.dll": {}
-        }
-      },
       "Siticone.Desktop.UI/2.1.1": {
         "runtime": {
           "lib/net40/Siticone.Desktop.UI.dll": {
@@ -25,11 +17,6 @@
     }
   },
   "libraries": {
-    "Notepad/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "Siticone.Desktop.UI/2.1.1": {
       "type": "package",
       "serviceable": true,

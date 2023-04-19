@@ -1,0 +1,6 @@
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Notepad.exe
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Notepad.dll
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Notepad.deps.json
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Notepad.runtimeconfig.json
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Notepad.pdb
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\publish\Siticone.Desktop.UI.dll

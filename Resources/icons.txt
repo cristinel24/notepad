@@ -1,0 +1,2 @@
+canvas: 60x60
+icon: ~34x34
