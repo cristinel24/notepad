@@ -789,6 +789,7 @@ namespace Notepad
             this.replace_box.Size = new System.Drawing.Size(176, 38);
             this.replace_box.TabIndex = 2;
             this.replace_box.Text = "";
+            this.replace_box.TextChanged += new System.EventHandler(this.replace_box_TextChanged);
             // 
             // replace_all_button
             // 

@@ -2,74 +2,78 @@
 
 Notepad is a simple text editor built using C# and the .NET Framework. It provides basic text editing functionality with features like saving, opening and creating new files.
 
+<img src="readme/screenshot.gif" width="600">
+
+
 ## Installation
 
-Check out our [releases](https://github.com/YorKnEz/total-commander/releases) page.
+Download the source code from [releases](https://github.com/cristinel24/notepad/releases) page then run `Notepad.exe` from `./notepad/`.
 
 ## Shortcuts
 
-### File selection
+### File managemenet
 
-`Ctrl + A` - Select all files\
-`Ctrl + D` - Deselect all files\
-`Ctrl + I` - Invert selection
+`Ctrl + N` - New file\
+`Ctrl + Shift + N` - New Notepad Instance\
+`Ctrl + O` - Open a file from your computer\
+`Ctrl + S` - Save the file in your computer\
+`Ctrl + Shift + S` - Save the file as\
+`Ctrl + P` - Print file\
+`Ctrl + Shift + P` - Print Preview\n
 
-### File manipulation
+### Text Control
 
-`Ctrl + C` - Copy all selected files\
-`Ctrl + V` - Paste the copied files\
-`Ctrl + X` - Cut all selected files\
-`Enter` - Open last selected file\
-`Delete` - Delete last selected file\
-`F2` - Rename all selected files\
-`F3` - Make directory\
-`F4` - Copy all selected files to a path\
-`F5` - Delete all selected files\
-`F6` - Move all selected files to a path
+`Ctrl + Z` - Undo last change in file (from current session)\
+`Ctrl + Y` - Redo last change in file (from current session)\
+`Ctrl + X` - Cut all selected text\
+`Ctrl + C` - Copy all selected text\
+`Ctrl + V` - Paste the copied text\
+`Ctrl + A` - Select all text\
+`Ctrl + F` - Find a string from text file (Regular Expressions are Enabled)\
+`Ctrl + H` - Replace a string from text file (Regular Expressions are Enabled)\
+`Delete` - Delete a character after the cursor line\
+`Ctrl + Delete` - Delete a word after the cursor line\
+`Backspace` - Delete a character behind the cursor line\
+`Ctrl + Backspace` - Delete a word behind the cursor line\
 
-### File sorting
 
-`Shift + F2` - Sort by name\
-`Shift + F3` - Sort by extension\
-`Shift + F4` - Sort by size\
-`Shift + F5` - Sort by date
+#### How to use Regular Expressions
 
-### View
+You can use Regular Expressions(Regex) to find faster certain items in a text file. Documentation can be found [here](https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference). [Practice your Regex skills!](https://regexr.com/).
 
-`Ctrl + R` - Refresh explorer\
-`Ctrl + T` - Switch to the next theme\
-`Ctrl + SHIFT + T` - Switch to the previous theme\
+<img src="readme/find.png" width="389">
+
+
+
+### Text Behaviour
+
+`Ctrl + L` - Left indent current/selected text\
+`Ctrl + R` - Right indent current/selected text\
+`Ctrl + E` - Center indent current/selected text\
+`Ctrl + J` - Justify indent current/selected text\
+`Alt + W` - Toggles word wrap function\
+`F5` - Write current date in long format\
+`Ctrl + MouseScroll` - Zoom in/out
+
+### Text Format
+
+`Alt + F` - Change current text font\
+`Alt + A` - Highlight current selected text\
+`Ctrl + B` - Makes the currently selected text bold\
+`Ctrl + I` - Makes the currently selected text italic\
+`Ctrl + U` - Makes the currently selected text underlined\
+`Ctrl + Q` - Strikeout Text
+
+
+### Customization
+
+`Alt + B` - Change background color of text box\
+`Alt + T` - Change text color of the entire file\
+`Alt + H` - Change the highlight color\
+`Alt + C` - Change text color of the current selected text\
+`Alt + O` - Change Opacity of Application
+
+### Other
+
 `F1` - Open this page
-
-### Navigation
-
-`Backspace` - Go back one folder\
-`Tab` - Switch focus to next explorer\
-`Shift + Tab` - Switch focus to previous explorer\
-`Up` - Move up one file / Scroll up\
-`Down` - Move down one file / Scroll down
-
-## Customizing
-
-You can create your own theme if you don't like the default ones, for that we have `template.theme`, where you can see the format of the themes and an example. After you created your theme, you just need to add it in the `themes` folder (that's where all the themes should be saved).
-
-### Modifying the font/icons/charSize
-
-If you modify any of these and want to use the new theme, we highly recommend that you change the default-theme field from `settings.txt`, otherwise the font/icons/charSize will not be properly updated.
-
-### Modifying the code
-
-The best part about our project is that it is open source, that means you can take a look at the code and modify it. You can change literally anything you want (at your own risk).
-
-If you are willing to modify the code yourself, you will need to compile it afterwards, so here are the compilation commands:
-
-Linux: `g++ src/*.cpp src/components/*.cpp -Iinclude -Iinclude/components -std=c++20 -lsfml-graphics -lsfml-window -lsfml-system -o total-commander-linux && ./total-commander-linux && clear`
-
-Windows: `g++ src/*.cpp src/components/*.cpp -Iinclude -Iinclude/components -std=c++20 -IPATH_TO_SFML_INCLUDE -DSFML_STATIC -LPATH_TO_SFML_LIB -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -lopengl32 -lfreetype -lwinmm -lgdi32 -o total-commander && total-commander.exe`
-
-For this to work, you will need to install [SFML](https://www.sfml-dev.org/download/sfml/2.5.1/).
-
-## Credits
-
-Default icons taken from the following sources: [1](https://www.flaticon.com/packs/files-69), [2](https://www.flaticon.com/packs/cloud-network-5), [3](https://www.flaticon.com/packs/diagram), [4](https://www.flaticon.com/packs/arrows-85).
 

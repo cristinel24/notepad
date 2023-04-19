@@ -312,8 +312,9 @@ namespace Notepad
 
         private void fontToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            fontDialog1.ShowDialog();
-            richBox.Font = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
+           fontDialog1.ShowDialog();
+           if(richBox.SelectedText!="") richBox.SelectionFont = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
+           else richBox.Font = new Font(fontDialog1.Font.FontFamily, fontDialog1.Font.Size, fontDialog1.Font.Style);
         }
 
         private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -393,77 +394,40 @@ namespace Notepad
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        public static string[] FindWordsMatchingPattern(string input, string pat, RegexOptions options = RegexOptions.None)
-        {
-            string pattern = pat;
-            MatchCollection matches = Regex.Matches(input, pattern, options);
-
-            string[] results = new string[matches.Count];
-            for (int i = 0; i < matches.Count; i++)
-            {
-                results[i] = matches[i].Value;
-            }
-
-            return results;
-        }
-
-        public List<int> FindWordIndices(string input, string pat, RegexOptions options = RegexOptions.None)
-        {
-            string pattern = pat;
-            MatchCollection matches = Regex.Matches(input, pattern, options);
-
-            List<int> indices = new List<int>();
-
-            foreach (Match match in matches)
-            {
-                indices.Add(match.Index);
-            }
-
-            return indices;
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> indicies = null;
-            String[] matches = null;
 
-            if (find_box.Text == "") return;
-            //No check
-            if (!matchCase.Checked && !WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
-            }
-            //Match Check
-            if (matchCase.Checked && !WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"{find_box.Text}");
-                matches = FindWordsMatchingPattern(richBox.Text, @$"{find_box.Text}");
-            }
-            //Whole Word
-            if (!matchCase.Checked && WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
-            }
+            MatchCollection matches = null;
 
-
-            //Match Check && Whole Word
-            if (matchCase.Checked && WholeWord.Checked)
+            try
             {
-                indicies = FindWordIndices( richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
-                matches = FindWordsMatchingPattern( richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
-            }
+                if (find_box.Text == "") return;
+                //No check
+                if (!matchCase.Checked && !WholeWord.Checked) matches = Regex.Matches(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
 
-            if (list_iterator < 0 || list_iterator >= indicies.Count) list_iterator = 0;
-            richBox.SelectionLength = 0;;
-            if (indicies.Count > 0)
-            {
-                lastIndex = indicies[list_iterator++];
-                 richBox.SelectionStart = lastIndex++;
-                 richBox.SelectionLength = matches[list_iterator - 1].Length;
+                //Match Check
+                if (matchCase.Checked && !WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"{find_box.Text}", RegexOptions.None);
+
+                //Whole Word
+                if (!matchCase.Checked && WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
+
+                //Match Check && Whole Word
+                if (matchCase.Checked && WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
             }
-            richBox.Focus();
+            catch (Exception) { }
+
+            if (matches != null)
+            {
+                if (list_iterator < 0 || list_iterator >= matches.Count) list_iterator = 0;
+                richBox.SelectionLength = 0; ;
+                if (matches.Count > 0)
+                {
+                    lastIndex = matches[list_iterator++].Index;
+                    richBox.SelectionStart = lastIndex++;
+                    richBox.SelectionLength = matches[list_iterator - 1].Length;
+                }
+                richBox.Focus();
+            }
         }
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -491,87 +455,75 @@ namespace Notepad
         private void button5_Click(object sender, EventArgs e)
         {
             if (find_box_replace.Text == "") return;
-            List<int> indicies = null;
-            String[] matches = null;
-            list_iterator = 0;
-            lastIndex = 0;
-            //No check
-            if (!matchCase2.Checked && !WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
-            }
-            //Match Check
-            if (matchCase2.Checked && !WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"{find_box_replace.Text}");
-                matches = FindWordsMatchingPattern(richBox.Text, @$"{find_box_replace.Text}");
-            }
-            //Whole Word
-            if (!matchCase2.Checked && WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-            }
+            MatchCollection matches = null;
 
+            try
+            {
+                //No check
+                if (!matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
 
-            //Match Check && Whole Word
-            if (matchCase2.Checked && WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
+                //Match Check
+                if (matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"{find_box_replace.Text}", RegexOptions.None);
+
+                //Whole Word
+                if (!matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
+
+                //Match Check && Whole Word
+                if (matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
             }
-            richBox.SelectionLength = 0;;
-            for (int i = 0; i < indicies.Count; i++)
+            catch (Exception err) { };
+
+            if (matches != null)
             {
-                richBox.SelectionStart = indicies[i];
-                richBox.SelectionLength = matches[i].Length;
-                richBox.SelectionBackColor = currentHighlightColor;
+                foreach (Match match in matches)
+                {
+                    richBox.SelectionStart = match.Index;
+                    richBox.SelectionLength = match.Length;
+                    richBox.SelectionBackColor = currentHighlightColor;
+                }
+                richBox.SelectionLength = 0;
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            List<int> indicies = null;
-            String[] matches = null;
+           
             if (count == 0) list_iterator = count;
             if (find_box_replace.Text == "") return;
-            //No check
-            if (!matchCase2.Checked && !WholeWord2.Checked)
+
+            MatchCollection matches = null;
+            try
             {
-                indicies = FindWordIndices(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
+                //No check
+                if (!matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
+
+                //Match Check
+                if (matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"{find_box_replace.Text}", RegexOptions.None);
+
+                //Whole Word
+                if (!matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
+
+                //Match Check && Whole Word
+                if (matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
+
             }
-            //Match Check
-            if (matchCase2.Checked && !WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"{find_box_replace.Text}");
-                matches = FindWordsMatchingPattern(richBox.Text, @$"{find_box_replace.Text}");
-            }
-            //Whole Word
-            if (!matchCase2.Checked && WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-            }
+            catch (Exception) { }
 
 
-            //Match Check && Whole Word
-            if (matchCase2.Checked && WholeWord2.Checked)
+            if (matches != null)
             {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
+                if (list_iterator < 0 || list_iterator >= matches.Count) list_iterator = 0;
+                richBox.SelectionLength = 0;
+                if (matches.Count > 0)
+                {
+                    lastIndex = matches[list_iterator++].Index;
+                    richBox.SelectionStart = lastIndex++;
+                    richBox.SelectionLength = matches[list_iterator - 1].Length;
+                }
+                richBox.Focus();
             }
 
-            if (list_iterator < 0 || list_iterator >= indicies.Count) list_iterator = 0;
-            richBox.SelectionLength = 0;
-            if (indicies.Count > 0)
-            {
-                lastIndex = indicies[list_iterator++];
-                richBox.SelectionStart = lastIndex++;
-                richBox.SelectionLength = matches[list_iterator - 1].Length;
-            }
-            richBox.Focus();
+           
         }
 
         private void replace_button_Click(object sender, EventArgs e)
@@ -585,44 +537,38 @@ namespace Notepad
         private void replace_all_button_Click(object sender, EventArgs e)
         {
             if (find_box_replace.Text == "") return;
-            List<int> indicies = null;
-            String[] matches = null;
             list_iterator = 0;
             lastIndex = 0;
 
-            //No check
-            if (!matchCase2.Checked && !WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
-            }
-            //Match Check
-            if (matchCase2.Checked && !WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"{find_box_replace.Text}");
-                matches = FindWordsMatchingPattern(richBox.Text, @$"{find_box_replace.Text}");
-            }
-            //Whole Word
-            if (!matchCase2.Checked && WholeWord2.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
-            }
+            MatchCollection matches = null;
 
-
-            //Match Check && Whole Word
-            if (matchCase2.Checked && WholeWord2.Checked)
+            try
             {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
+                //No check
+                if (!matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text.ToLower(), @$"{find_box_replace.Text}", RegexOptions.IgnoreCase);
+
+                //Match Check
+                if (matchCase2.Checked && !WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"{find_box_replace.Text}", RegexOptions.None);
+
+                //Whole Word
+                if (!matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.IgnoreCase);
+
+                //Match Check && Whole Word
+                if (matchCase2.Checked && WholeWord2.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box_replace.Text}\b", RegexOptions.None);
             }
-            richBox.SelectionLength = 0;;
+            catch (Exception err) { };
 
-            for (int i = 0; i<matches.Length; i++)
+            if(matches != null)
             {
-                richBox.SelectionStart = indicies[i] + i * (replace_box.Text.Length - find_box_replace.Text.Length);
-                richBox.SelectionLength = matches[i].Length;
-                richBox.SelectedText = replace_box.Text;
+                if (list_iterator < 0 || list_iterator >= matches.Count) list_iterator = 0;
+                richBox.SelectionLength = 0;
+
+                for (int i = 0; i < matches.Count; i++)
+                {
+                    richBox.SelectionStart = matches[i].Index + i * (matches[i].Length - find_box_replace.Text.Length);
+                    richBox.SelectionLength = matches[i].Length;
+                    richBox.SelectedText = replace_box.Text;
+                }
             }
             
         }
@@ -725,6 +671,11 @@ namespace Notepad
             else richBox.SelectionFont = new Font(richBox.Font.FontFamily, richBox.Font.Size, richBox.SelectionFont.Style | FontStyle.Strikeout);
         }
 
+        private void replace_box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void find_box_replace_TextChanged(object sender, EventArgs e)
         {
 
@@ -755,42 +706,36 @@ namespace Notepad
         private void highlight_button_Click(object sender, EventArgs e)
         {
             if (find_box.Text == "") return;
-            List<int> indicies = null;
-            String[] matches = null;
+           
             list_iterator = 0;
             lastIndex = 0;
-            //No check
-            if (!matchCase.Checked && !WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
-            }
-            //Match Check
-            if (matchCase.Checked && !WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"{find_box.Text}");
-                matches = FindWordsMatchingPattern(richBox.Text, @$"{find_box.Text}");
-            }
-            //Whole Word
-            if (!matchCase.Checked && WholeWord.Checked)
-            {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
-            }
+            MatchCollection matches = null;
 
-            richBox.SelectionLength = 0;;
-            //Match Check && Whole Word
-            if (matchCase.Checked && WholeWord.Checked)
+            try
             {
-                indicies = FindWordIndices(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
-                matches = FindWordsMatchingPattern(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
-            }
+                //No check
+                if (!matchCase.Checked && !WholeWord.Checked) matches = Regex.Matches(richBox.Text.ToLower(), @$"{find_box.Text}", RegexOptions.IgnoreCase);
 
-            for (int i = 0; i < matches.Length; i++)
+                //Match Check
+                if (matchCase.Checked && !WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"{find_box.Text}", RegexOptions.None);
+
+                //Whole Word
+                if (!matchCase.Checked && WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.IgnoreCase);
+
+                //Match Check && Whole Word
+                if (matchCase.Checked && WholeWord.Checked) matches = Regex.Matches(richBox.Text, @$"\b{find_box.Text}\b", RegexOptions.None);
+            }
+            catch (Exception) { }
+
+            if(matches != null)
             {
-                richBox.SelectionStart = indicies[i];
-                richBox.SelectionLength = matches[i].Length;
-                richBox.SelectionBackColor = currentHighlightColor;
+                foreach (Match match in matches)
+                {
+                    richBox.SelectionStart = match.Index;
+                    richBox.SelectionLength = match.Length;
+                    richBox.SelectionBackColor = currentHighlightColor;
+                }
+                richBox.SelectionLength = 0;
             }
 
         }

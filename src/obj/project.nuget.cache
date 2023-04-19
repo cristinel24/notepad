@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "78J8oiI7Z04ZDjYFMLGiZROTsByRMq50wuvEXM3FWvi1mlvph/rOu/aD+pUeOSQzCiqSMJ/+pZByl6ThRfogwQ==",
+  "dgSpecHash": "+eJbOTS3DoLv3hI6JKG9gBRA+1ceHJ84rKwpDa+pvn3t+l/PeJ1L3qNNmdKXw0EqlHQYK3LLDdp0UU4bDNNJmw==",
   "success": true,
-  "projectFilePath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
+  "projectFilePath": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\crist\\.nuget\\packages\\siticone.desktop.ui\\2.1.1\\siticone.desktop.ui.2.1.1.nupkg.sha512"
   ],
