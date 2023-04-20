@@ -1,0 +1,10 @@
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Notepad
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Notepad.dll
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Notepad.deps.json
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Notepad.runtimeconfig.json
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Notepad.pdb
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\DynamicData.dll
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\ReactiveUI.dll
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Siticone.Desktop.UI.dll
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\Splat.dll
+D:\FII\Extra\notepad\publish\Notepad-Linux-x64\System.Reactive.dll

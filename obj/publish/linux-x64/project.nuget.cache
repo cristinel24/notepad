@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "PGm+gRnhwIZQ/x031Gc1yUAPtOdrgHqo4cFVaynJrfql4M2LSby81t8dQQvEhRMrmbAIMO55Af8yX8Ff6JSR2A==",
+  "dgSpecHash": "YwoNBYXeuYVo7n3AHTO2ymicbrM3KELINqxTkdVBy0yVwmbwdEBx56QI/yrEC1VY/f79L8z+0dPAk9g6GIPawA==",
   "success": true,
   "projectFilePath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
   "expectedPackageFiles": [
@@ -61,8 +61,6 @@
     "C:\\Users\\crist\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\crist\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\crist\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\crist\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\5.0.17\\microsoft.netcore.app.runtime.linux-x64.5.0.17.nupkg.sha512",
-    "C:\\Users\\crist\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\5.0.17\\microsoft.aspnetcore.app.runtime.linux-x64.5.0.17.nupkg.sha512",
     "C:\\Users\\crist\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\5.0.17\\microsoft.netcore.app.host.linux-x64.5.0.17.nupkg.sha512"
   ],
   "logs": [
