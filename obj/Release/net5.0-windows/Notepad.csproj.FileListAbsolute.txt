@@ -21,3 +21,7 @@ D:\FII\Extra\Notepad\obj\Release\net5.0-windows\Notepad.dll
 D:\FII\Extra\Notepad\obj\Release\net5.0-windows\ref\Notepad.dll
 D:\FII\Extra\Notepad\obj\Release\net5.0-windows\Notepad.pdb
 D:\FII\Extra\Notepad\obj\Release\net5.0-windows\Notepad.genruntimeconfig.cache
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\DynamicData.dll
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\ReactiveUI.dll
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\Splat.dll
+D:\FII\Extra\Notepad\bin\Release\net5.0-windows\System.Reactive.dll

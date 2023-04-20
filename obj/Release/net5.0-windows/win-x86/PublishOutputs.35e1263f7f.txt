@@ -1,0 +1,11 @@
+D:\FII\Extra\Notepad.pdb
+D:\FII\Extra\clrcompression.dll
+D:\FII\Extra\clrjit.dll
+D:\FII\Extra\coreclr.dll
+D:\FII\Extra\mscordaccore.dll
+D:\FII\Extra\D3DCompiler_47_cor3.dll
+D:\FII\Extra\PenImc_cor3.dll
+D:\FII\Extra\PresentationNative_cor3.dll
+D:\FII\Extra\vcruntime140_cor3.dll
+D:\FII\Extra\wpfgfx_cor3.dll
+D:\FII\Extra\Notepad.exe

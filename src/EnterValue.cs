@@ -21,6 +21,21 @@ namespace Notepad
             parent = n;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                parent.richBox.Focus();
+            }
+            else if (keyData == (Keys.Enter) && (change_box.Focused || change_button.Focused))
+            {
+                this.change_button_Click(this, EventArgs.Empty);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private bool check(String buffer)
         {
             for (int i = 0; i < buffer.Length; i++)
@@ -42,16 +57,6 @@ namespace Notepad
         {
            if(change_box.Text.Length > 0 && change_box.Text[change_box.Text.Length - 1 ] != '%' && change_box.Text[change_box.Text.Length - 1] != '!')
                 change_box.Text += '%';
-        }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Enter) && (change_box.Focused || change_button.Focused))
-            {
-                this.change_button_Click(this, EventArgs.Empty);
-                return true;
-            }
-           
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void change_button_Click(object sender, EventArgs e)

@@ -1,0 +1,2 @@
+D:\FII\Extra\notepad\publish\Framework Dependent\Notepad.pdb
+D:\FII\Extra\notepad\publish\Framework Dependent\Notepad.exe

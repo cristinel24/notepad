@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FII\\Extra\\Notepad\\Notepad.csproj": {}
+    "D:\\FII\\Extra\\notepad\\Notepad.csproj": {}
   },
   "projects": {
-    "D:\\FII\\Extra\\Notepad\\Notepad.csproj": {
+    "D:\\FII\\Extra\\notepad\\Notepad.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
+        "projectUniqueName": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
         "projectName": "Notepad",
-        "projectPath": "D:\\FII\\Extra\\Notepad\\Notepad.csproj",
+        "projectPath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
         "packagesPath": "C:\\Users\\crist\\.nuget\\packages\\",
-        "outputPath": "D:\\FII\\Extra\\Notepad\\obj\\publish\\win-x86\\",
+        "outputPath": "D:\\FII\\Extra\\notepad\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -44,6 +44,10 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "dependencies": {
+            "ReactiveUI": {
+              "target": "Package",
+              "version": "[18.4.34, )"
+            },
             "Siticone.Desktop.UI": {
               "target": "Package",
               "version": "[2.1.1, )"
@@ -59,20 +63,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[5.0.17, 5.0.17]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[5.0.17, 5.0.17]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"

@@ -24,6 +24,16 @@ namespace Notepad
             parent = n;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                this.Close();
+                parent.richBox.Focus();
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         public int getSaveStat()
         {
             return saveStat;

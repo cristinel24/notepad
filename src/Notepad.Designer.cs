@@ -107,6 +107,10 @@ namespace Notepad
             this.right_indent_button = new System.Windows.Forms.Button();
             this.siticoneTabControl1 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.siticoneShadowForm1 = new Siticone.Desktop.UI.WinForms.SiticoneShadowForm(this.components);
+            this.word_count = new System.Windows.Forms.Label();
+            this.characters_count = new System.Windows.Forms.Label();
+            this.siticoneTabControl2 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
+            this.siticoneTabControl3 = new Siticone.Desktop.UI.WinForms.SiticoneTabControl();
             this.menuStrip1.SuspendLayout();
             this.find_panel.SuspendLayout();
             this.replace_panel.SuspendLayout();
@@ -555,7 +559,7 @@ namespace Notepad
             this.richBox.Location = new System.Drawing.Point(5, 27);
             this.richBox.Name = "richBox";
             this.richBox.ShowSelectionMargin = true;
-            this.richBox.Size = new System.Drawing.Size(792, 414);
+            this.richBox.Size = new System.Drawing.Size(790, 408);
             this.richBox.TabIndex = 2;
             this.richBox.Text = "";
             this.richBox.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -605,7 +609,7 @@ namespace Notepad
             this.find_panel.Controls.Add(this.WholeWord);
             this.find_panel.Controls.Add(this.find_box);
             this.find_panel.Controls.Add(this.matchCase);
-            this.find_panel.Location = new System.Drawing.Point(203, 371);
+            this.find_panel.Location = new System.Drawing.Point(203, 355);
             this.find_panel.Name = "find_panel";
             this.find_panel.Size = new System.Drawing.Size(391, 80);
             this.find_panel.TabIndex = 4;
@@ -708,7 +712,7 @@ namespace Notepad
             this.replace_panel.Controls.Add(this.WholeWord2);
             this.replace_panel.Controls.Add(this.find_box_replace);
             this.replace_panel.Controls.Add(this.matchCase2);
-            this.replace_panel.Location = new System.Drawing.Point(203, 332);
+            this.replace_panel.Location = new System.Drawing.Point(203, 316);
             this.replace_panel.Name = "replace_panel";
             this.replace_panel.Size = new System.Drawing.Size(391, 119);
             this.replace_panel.TabIndex = 10;
@@ -1008,6 +1012,33 @@ namespace Notepad
             this.right_indent_button.UseVisualStyleBackColor = false;
             this.right_indent_button.Click += new System.EventHandler(this.right_indent_button_Click);
             // 
+            // word_count
+            // 
+            this.word_count.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.word_count.BackColor = System.Drawing.Color.Transparent;
+            this.word_count.Enabled = false;
+            this.word_count.ForeColor = System.Drawing.Color.White;
+            this.word_count.Location = new System.Drawing.Point(5, 436);
+            this.word_count.Name = "word_count";
+            this.word_count.Size = new System.Drawing.Size(70, 15);
+            this.word_count.TabIndex = 20;
+            this.word_count.Text = "W: 0";
+            // 
+            // characters_count
+            // 
+            this.characters_count.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.characters_count.BackColor = System.Drawing.Color.Transparent;
+            this.characters_count.Enabled = false;
+            this.characters_count.ForeColor = System.Drawing.Color.White;
+            this.characters_count.Location = new System.Drawing.Point(81, 436);
+            this.characters_count.Name = "characters_count";
+            this.characters_count.Size = new System.Drawing.Size(116, 15);
+            this.characters_count.TabIndex = 21;
+            this.characters_count.Text = "C: 0";
+            this.characters_count.Click += new System.EventHandler(this.characters_count_Click);
+            // 
             // Notepad
             // 
             this.AllowDrop = true;
@@ -1016,6 +1047,8 @@ namespace Notepad
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.characters_count);
+            this.Controls.Add(this.word_count);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.replace_panel);
             this.Controls.Add(this.button2);
@@ -1126,6 +1159,10 @@ namespace Notepad
         private System.Windows.Forms.ToolStripMenuItem strikeoutToolStripMenuItem;
         private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl1;
         private Siticone.Desktop.UI.WinForms.SiticoneShadowForm siticoneShadowForm1;
+        private System.Windows.Forms.Label word_count;
+        private System.Windows.Forms.Label characters_count;
+        private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl2;
+        private Siticone.Desktop.UI.WinForms.SiticoneTabControl siticoneTabControl3;
     }
 }
 

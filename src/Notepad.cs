@@ -29,6 +29,14 @@ namespace Notepad
             currentColor = richBox.SelectionBackColor;
             panel1.SendToBack();
             siticoneShadowForm1.SetShadowForm(this);
+            colorDialog1.AllowFullOpen = true;
+            colorDialog1.FullOpen = true;
+            colorDialog1.CustomColors = new int[] { ColorToInt(Color.FromArgb(39, 39, 39)) };
+        }
+
+        private static int ColorToInt(Color color)
+        {
+            return (color.R) | (color.G << 8) | (color.B << 16);
         }
 
         private const int grip = 6;
@@ -178,10 +186,11 @@ namespace Notepad
 
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-            //if(scrollbar != null) scrollbar.ContextMenuStrip.BackColor = currentBackColor;
+            //if(scrollbar != null) scrollbar.ContextMenuStrip.BackColor = currentBackColor; 
 
-           
-
+            string[] deli = { "\n", " " };
+            word_count.Text = $"W: {richBox.Text.Split(deli, StringSplitOptions.RemoveEmptyEntries).Length}";
+            characters_count.Text = $"C: {richBox.Text.Length}";
 
             richBox.Font = richBox.Font;
             richBox.BackColor = richBox.BackColor;
@@ -319,16 +328,21 @@ namespace Notepad
 
         private void changeTextColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            richBox.ForeColor = colorDialog1.Color;
-            currentForeColor = colorDialog1.Color;
+           if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richBox.ForeColor = colorDialog1.Color;
+                currentForeColor = colorDialog1.Color;
+            }
         }
 
         private void changeAppBackgroundToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            richBox.BackColor = colorDialog1.Color;
-            currentBackColor = colorDialog1.Color;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richBox.BackColor = colorDialog1.Color;
+                currentBackColor = colorDialog1.Color;
+            }
+           
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -360,9 +374,11 @@ namespace Notepad
 
         private void changeHighlightTextColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            richBox.SelectionColor = colorDialog1.Color;
-            currentHighlighttextColor = colorDialog1.Color;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richBox.SelectionColor = colorDialog1.Color;
+                currentHighlighttextColor = colorDialog1.Color;
+            }
         }
 
         private void find_box_TextChanged(object sender, EventArgs e)
@@ -372,6 +388,21 @@ namespace Notepad
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.Escape)
+            {
+                if (find_box.Focused)
+                {
+                    find_panel.Enabled = false;
+                    find_panel.Visible = false;
+                    richBox.Focus();
+                }
+                else if (find_box_replace.Focused || replace_box.Focused)
+                {
+                    replace_panel.Enabled = false;
+                    replace_panel.Visible = false;
+                    richBox.Focus();
+                }
+            }
             if (keyData == (Keys.Enter) && find_box.Focused)
             {
                 this.button1_Click(this, EventArgs.Empty);
@@ -630,7 +661,7 @@ namespace Notepad
 
         private void left_indent_button_Click(object sender, EventArgs e)
         {
-            richBox.SelectionAlignment = HorizontalAlignment.Left;
+            richBox.SelectionAlignment = HorizontalAlignment.Left; 
         }
 
         private void center_indent_button_Click(object sender, EventArgs e)
@@ -672,6 +703,11 @@ namespace Notepad
         }
 
         private void replace_box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void characters_count_Click(object sender, EventArgs e)
         {
 
         }
@@ -743,9 +779,12 @@ namespace Notepad
 
         private void changeHighlightColorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            colorDialog1.ShowDialog();
-            richBox.SelectionBackColor = colorDialog1.Color;
-            currentHighlightColor = colorDialog1.Color;
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                richBox.SelectionBackColor = colorDialog1.Color;
+                currentHighlightColor = colorDialog1.Color;
+            }
+            
         } 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
