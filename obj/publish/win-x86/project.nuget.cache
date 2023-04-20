@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oywURNDjDEj+pMDlCvYkLmAf6GsbsC9Rh/m3SAXv+ABTn9K4JOyY2oB0ZFavBP19ivYMPyIr5J8XbrjlqYiViA==",
+  "dgSpecHash": "m0n1GhH7aXEwwwqp9i5M9lFSPUoo1f13AMb0ArhFrjL5CykDP+Vn/xpVemzujCggOptzwke+gxlXw0pp9+WLrg==",
   "success": true,
   "projectFilePath": "D:\\FII\\Extra\\notepad\\Notepad.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,10 @@
     "C:\\Users\\crist\\.nuget\\packages\\system.runtime.serialization.primitives\\4.3.0\\system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\crist\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\crist\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
-    "C:\\Users\\crist\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
+    "C:\\Users\\crist\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
+    "C:\\Users\\crist\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\5.0.17\\microsoft.netcore.app.runtime.win-x86.5.0.17.nupkg.sha512",
+    "C:\\Users\\crist\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\5.0.17\\microsoft.windowsdesktop.app.runtime.win-x86.5.0.17.nupkg.sha512",
+    "C:\\Users\\crist\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\5.0.17\\microsoft.aspnetcore.app.runtime.win-x86.5.0.17.nupkg.sha512"
   ],
   "logs": [
     {

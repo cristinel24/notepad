@@ -148,7 +148,6 @@ namespace Notepad
                             String[] args = sfd.FileName.Split('\\');
                             TitleBox.Text = args[args.Length - 1];
                             SaveStatus.Text = "Saved";
-                            saveStat = 1;
                         }
                     }
                 }
@@ -221,7 +220,7 @@ namespace Notepad
                 cutToolStripMenuItem.Enabled = false;
                 copyToolStripMenuItem.Enabled = false;
                 selectAllToolStripMenuItem.Enabled = false;
-                deleteToolStripMenuItem.Enabled = true;
+                deleteToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -388,6 +387,13 @@ namespace Notepad
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+
+            if (clickdreapt.Enabled)
+            {
+                clickdreapt.Enabled = false;
+                clickdreapt.Visible = false;
+
+            }
             if (keyData == Keys.Escape)
             {
                 if (find_box.Focused)
@@ -606,6 +612,11 @@ namespace Notepad
 
         private void mouseDown_event(object sender, MouseEventArgs e)
         {
+            if (clickdreapt.Enabled)
+            {
+                clickdreapt.Enabled = false;
+                clickdreapt.Visible = false;
+            }
             offset.X = e.X;
             offset.Y = e.Y;
             mouseDown = true;
@@ -712,6 +723,102 @@ namespace Notepad
 
         }
 
+        private void undoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            undoToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cutToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            copyToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pasteToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void deleteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            deleteToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            selectAllToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        private void highlightToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            highlightToolStripMenuItem_Click(sender, e);
+            clickdreapt.Enabled = false;
+            clickdreapt.Visible = false;
+        }
+
+        protected override void OnMouseClick(MouseEventArgs e)
+        {
+            if (clickdreapt.Enabled)
+            {
+                clickdreapt.Enabled = false;
+                clickdreapt.Visible = false;
+
+            }
+            base.OnMouseClick(e);
+        }
+
+        private void minitool_event(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                clickdreapt.Location = e.Location;
+                clickdreapt.Enabled = true;
+                clickdreapt.Visible = true;
+            }
+            if(richBox.SelectedText.Length > 0)
+            {
+                cutToolStripMenuItem1.Enabled = true;
+                copyToolStripMenuItem1.Enabled = true;
+                selectAllToolStripMenuItem1.Enabled = true;
+                deleteToolStripMenuItem1.Enabled = true;
+                highlightToolStripMenuItem1.Enabled = true;
+            }
+            else
+            {
+                cutToolStripMenuItem1.Enabled = false;
+                copyToolStripMenuItem1.Enabled = false;
+                selectAllToolStripMenuItem1.Enabled = false;
+                deleteToolStripMenuItem1.Enabled = false;
+                highlightToolStripMenuItem1.Enabled = false;
+
+            }
+        }
+
+        private void mouseDown_richBox(object sender, MouseEventArgs e)
+        {
+            if (clickdreapt.Enabled)
+            {
+                clickdreapt.Enabled = false;
+                clickdreapt.Visible = false;
+            }
+        }
+
         private void find_box_replace_TextChanged(object sender, EventArgs e)
         {
 
@@ -731,12 +838,12 @@ namespace Notepad
 
         private void how_to_use_reg_button_Click(object sender, EventArgs e)
         {
-            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad#Regular_Expressions");
+            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad#how-to-use-regular-expressions");
         }
 
         private void find_replace_button_Click(object sender, EventArgs e)
         {
-            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad#Regular_Expressions");
+            Process.Start("cmd", "/c start https://github.com/cristinel24/notepad#how-to-use-regular-expressions");
         }
 
         private void highlight_button_Click(object sender, EventArgs e)
