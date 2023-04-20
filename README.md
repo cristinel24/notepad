@@ -19,7 +19,7 @@ Download the source code from [releases](https://github.com/cristinel24/notepad/
 `Ctrl + S` - Save the file in your computer\
 `Ctrl + Shift + S` - Save the file as\
 `Ctrl + P` - Print file\
-`Ctrl + Shift + P` - Print Preview\n
+`Ctrl + Shift + P` - Print Preview\
 
 ### Text Control
 
@@ -34,7 +34,7 @@ Download the source code from [releases](https://github.com/cristinel24/notepad/
 `Delete` - Delete a character after the cursor line\
 `Ctrl + Delete` - Delete a word after the cursor line\
 `Backspace` - Delete a character behind the cursor line\
-`Ctrl + Backspace` - Delete a word behind the cursor line\
+`Ctrl + Backspace` - Delete a word behind the cursor line
 
 
 #### How to use Regular Expressions
