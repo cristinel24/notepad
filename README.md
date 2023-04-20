@@ -19,7 +19,7 @@ Download the source code from [releases](https://github.com/cristinel24/notepad/
 `Ctrl + S` - Save the file in your computer\
 `Ctrl + Shift + S` - Save the file as\
 `Ctrl + P` - Print file\
-`Ctrl + Shift + P` - Print Preview\
+`Ctrl + Shift + P` - Print Preview
 
 ### Text Control
 
